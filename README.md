@@ -59,22 +59,32 @@
 
 ---
 
-## 部署
+## 部署（零配置）
 
-### GitHub Pages（推荐）
+### 方式一：GitHub Pages（推荐，完全免费）
 
-1. Fork 或克隆本仓库到你的 GitHub 账号
+1. Fork 本仓库到你的 GitHub 账号
 2. 进入仓库 **Settings → Pages**
-3. Source 选择 `main` 分支，路径选 `/`（根目录）
-4. 保存后等待约 1 分钟，访问 `https://<你的用户名>.github.io/<仓库名>/`
+3. Source 选择 `Deploy from a branch` → `main` 分支 → `/(root)`
+4. 点击 Save，等待 1 分钟
+5. 访问 `https://你的用户名.github.io/weapon-system/`
 
-### 其他静态托管
+### 方式二：Vercel（推荐，自动部署）
 
-将整个仓库上传至任意静态托管平台即可，推荐：
+1. 登录 [vercel.com](https://vercel.com)，点击 **Add New Project**
+2. 导入 GitHub 仓库
+3. 无需任何配置，直接点击 Deploy
+4. 自动获得 `https://项目名.vercel.app` 域名
 
-- [Vercel](https://vercel.com)：导入 GitHub 仓库，零配置自动部署
-- [Netlify](https://netlify.com)：拖拽文件夹即可部署
-- [Cloudflare Pages](https://pages.cloudflare.com)：连接 GitHub 仓库，自动构建
+### 方式三：Netlify（拖拽部署）
+
+1. 下载本仓库为 ZIP 并解压
+2. 登录 [netlify.com](https://netlify.com)
+3. 拖拽文件夹到 Deploy 区域，即刻上线
+
+### 方式四：任意服务器
+
+直接上传所有文件到服务器任意目录，无需安装任何环境，通过浏览器访问 `index.html` 即可。
 
 ---
 
