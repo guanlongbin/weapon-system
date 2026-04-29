@@ -7,212 +7,365 @@
 <script src="static/vue.global.prod.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
+
   body {
-    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    background: #0d1117;
-    color: #c9d1d9;
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: #f5f6fa;
+    color: #2c3e50;
     height: 100vh;
     display: flex;
     flex-direction: column;
   }
 
+  /* ===== 顶栏 ===== */
   .header {
-    background: #161b22;
-    border-bottom: 1px solid #30363d;
-    padding: 12px 24px;
+    background: linear-gradient(135deg, #1a2a4a 0%, #2d4a7a 100%);
+    padding: 0 32px;
+    height: 64px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     flex-shrink: 0;
   }
-  .header-icon { font-size: 22px; }
-  .header h1 { font-size: 18px; font-weight: 600; color: #e6edf3; letter-spacing: 2px; }
-  .header-sub { font-size: 12px; color: #6e7681; margin-left: auto; }
+  .header-logo {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .header-title { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 2px; }
+  .header-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-left: 4px; }
+  .header-badge {
+    margin-left: auto;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+  }
 
+  /* ===== 布局 ===== */
   .main { display: flex; flex: 1; overflow: hidden; }
 
+  /* ===== 侧边栏 ===== */
   .sidebar {
-    width: 260px;
-    background: #161b22;
-    border-right: 1px solid #30363d;
+    width: 240px;
+    background: #fff;
+    border-right: 1px solid #e8ecf0;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
   }
   .sidebar-title {
-    padding: 14px 16px;
-    font-size: 12px;
-    color: #6e7681;
+    padding: 16px 20px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #9aa5b4;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 1px solid #21262d;
+    border-bottom: 1px solid #f0f2f5;
   }
   .history-list { flex: 1; overflow-y: auto; padding: 8px; }
   .history-item {
     padding: 10px 12px;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    margin-bottom: 4px;
-    transition: background 0.15s;
+    margin-bottom: 2px;
+    transition: all 0.15s;
     border: 1px solid transparent;
   }
-  .history-item:hover { background: #21262d; }
-  .history-item.active { background: #1f2937; border-color: #388bfd40; }
-  .history-query { font-size: 13px; color: #e6edf3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .history-meta { font-size: 11px; color: #6e7681; margin-top: 3px; }
-  .no-history { padding: 24px 16px; font-size: 13px; color: #6e7681; text-align: center; }
+  .history-item:hover { background: #f5f7fa; }
+  .history-item.active { background: #eef4ff; border-color: #c5d8ff; }
+  .history-query {
+    font-size: 13px; color: #2c3e50; font-weight: 500;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .history-meta { font-size: 11px; color: #9aa5b4; margin-top: 2px; }
+  .no-history { padding: 32px 16px; font-size: 13px; color: #b0bac5; text-align: center; }
 
+  /* ===== 内容区 ===== */
   .content { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 
-  .results-area { flex: 1; overflow-y: auto; padding: 20px 24px; }
+  .results-area { flex: 1; overflow-y: auto; padding: 24px 28px; }
 
+  /* 欢迎页 */
   .welcome {
     display: flex; flex-direction: column; align-items: center;
-    justify-content: center; height: 100%; gap: 12px; color: #6e7681;
+    justify-content: center; height: 100%; gap: 16px;
   }
-  .welcome-icon { font-size: 48px; }
-  .welcome h2 { font-size: 20px; color: #8b949e; }
-  .welcome p { font-size: 14px; }
-
-  .result-header { margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-  .result-header .query-text { font-size: 15px; color: #e6edf3; }
-  .result-count {
-    background: #388bfd22; color: #388bfd;
-    border: 1px solid #388bfd40; border-radius: 20px;
-    padding: 2px 10px; font-size: 12px;
-  }
-  .no-result { text-align: center; color: #6e7681; padding: 48px; font-size: 15px; }
-
-  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
-  .card {
-    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
-    overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .card:hover { border-color: #388bfd60; box-shadow: 0 0 12px #388bfd18; }
-  .card-img { width: 100%; height: 180px; object-fit: cover; background: #21262d; display: block; }
-  .card-img-placeholder {
-    width: 100%; height: 180px; background: #21262d;
+  .welcome-icon-wrap {
+    width: 80px; height: 80px;
+    background: linear-gradient(135deg, #eef4ff, #dde9ff);
+    border-radius: 24px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 36px; color: #30363d;
+    font-size: 36px;
   }
-  .card-body { padding: 16px; }
-  .card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; gap: 8px; }
-  .card-name { font-size: 15px; font-weight: 600; color: #e6edf3; line-height: 1.4; flex: 1; }
-  .badges { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
-  .badge { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; white-space: nowrap; }
-  .badge-missile { background: #7c2c2c; color: #ffa198; border: 1px solid #f8514922; }
-  .badge-defense { background: #1a3a5c; color: #79c0ff; border: 1px solid #388bfd22; }
-  .badge-country { background: #1c3a1c; color: #7ee787; border: 1px solid #2ea04322; }
+  .welcome h2 { font-size: 22px; color: #2c3e50; font-weight: 600; }
+  .welcome p { font-size: 14px; color: #9aa5b4; }
+  .welcome-tips {
+    display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; justify-content: center;
+  }
+  .welcome-tip {
+    background: #fff; border: 1px solid #e8ecf0;
+    border-radius: 20px; padding: 6px 16px;
+    font-size: 13px; color: #5a6a7e; cursor: pointer;
+    transition: all 0.15s; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .welcome-tip:hover { border-color: #3d6acc; color: #3d6acc; background: #eef4ff; }
 
-  .card-section { margin-top: 12px; }
-  .section-label { font-size: 11px; color: #6e7681; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-  .section-text { font-size: 13px; color: #8b949e; line-height: 1.6; }
-  .section-text.collapsed { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-  .expand-btn { background: none; border: none; color: #388bfd; font-size: 12px; cursor: pointer; padding: 4px 0; margin-top: 2px; }
+  /* 加载 */
+  .loading-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 12px; }
+  .spinner {
+    width: 36px; height: 36px;
+    border: 3px solid #e8ecf0;
+    border-top-color: #3d6acc;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-text { font-size: 14px; color: #9aa5b4; }
+
+  /* 结果头 */
+  .result-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 20px; padding-bottom: 16px;
+    border-bottom: 1px solid #e8ecf0;
+  }
+  .result-query { font-size: 16px; font-weight: 600; color: #2c3e50; }
+  .result-keyword {
+    color: #3d6acc;
+    background: #eef4ff;
+    padding: 0 6px;
+    border-radius: 4px;
+  }
+  .result-count {
+    background: #eef4ff; color: #3d6acc;
+    border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 500;
+  }
+  .no-result {
+    text-align: center; padding: 64px 24px;
+    color: #b0bac5; font-size: 15px;
+  }
+  .no-result-icon { font-size: 40px; margin-bottom: 12px; }
+
+  /* 卡片网格 */
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #e8ecf0;
+    transition: all 0.2s;
+  }
+  .card:hover {
+    box-shadow: 0 8px 24px rgba(61,106,204,0.12);
+    border-color: #c5d8ff;
+    transform: translateY(-2px);
+  }
+
+  .card-img-wrap { position: relative; }
+  .card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+  .card-img-placeholder {
+    width: 100%; height: 200px;
+    background: linear-gradient(135deg, #f0f4ff, #e8ecf0);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+  }
+  .card-type-badge {
+    position: absolute; top: 12px; left: 12px;
+    padding: 4px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 600;
+    backdrop-filter: blur(8px);
+  }
+  .type-missile { background: rgba(220,53,69,0.85); color: #fff; }
+  .type-defense { background: rgba(25,118,210,0.85); color: #fff; }
+
+  .card-body { padding: 18px; }
+
+  .card-header { margin-bottom: 12px; }
+  .card-name { font-size: 15px; font-weight: 700; color: #1a2a4a; line-height: 1.4; margin-bottom: 6px; }
+  .card-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+  .meta-tag {
+    padding: 3px 10px; border-radius: 6px;
+    font-size: 11px; font-weight: 500;
+  }
+  .tag-country { background: #f0faf0; color: #2e7d32; border: 1px solid #c8e6c9; }
+
+  .divider { height: 1px; background: #f0f2f5; margin: 12px 0; }
+
+  .info-block { margin-bottom: 10px; }
+  .info-label {
+    font-size: 10px; font-weight: 600; color: #9aa5b4;
+    text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px;
+  }
+  .info-text {
+    font-size: 13px; color: #5a6a7e; line-height: 1.65;
+  }
+  .info-text.collapsed {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .expand-btn {
+    background: none; border: none;
+    color: #3d6acc; font-size: 12px; cursor: pointer;
+    padding: 4px 0; margin-top: 2px; font-weight: 500;
+  }
   .expand-btn:hover { text-decoration: underline; }
-  .divider { height: 1px; background: #21262d; margin: 12px 0; }
 
+  /* ===== 输入区 ===== */
   .input-area {
-    border-top: 1px solid #30363d; padding: 16px 24px;
-    background: #161b22; flex-shrink: 0;
+    border-top: 1px solid #e8ecf0;
+    padding: 16px 28px 18px;
+    background: #fff;
+    flex-shrink: 0;
   }
-  .input-row { display: flex; gap: 10px; align-items: center; max-width: 900px; margin: 0 auto; }
+  .input-row {
+    display: flex; gap: 10px; align-items: center;
+    max-width: 860px; margin: 0 auto;
+  }
+  .input-wrap {
+    flex: 1; position: relative;
+  }
+  .input-icon {
+    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    color: #b0bac5; font-size: 16px; pointer-events: none;
+  }
   .input-box {
-    flex: 1; background: #0d1117; border: 1px solid #30363d; border-radius: 8px;
-    padding: 10px 16px; color: #e6edf3; font-size: 14px; outline: none; transition: border-color 0.2s;
+    width: 100%;
+    background: #f5f7fa;
+    border: 1.5px solid #e8ecf0;
+    border-radius: 10px;
+    padding: 11px 16px 11px 40px;
+    color: #2c3e50; font-size: 14px; outline: none;
+    transition: all 0.2s;
   }
-  .input-box:focus { border-color: #388bfd; }
-  .input-box::placeholder { color: #6e7681; }
+  .input-box:focus { border-color: #3d6acc; background: #fff; box-shadow: 0 0 0 3px rgba(61,106,204,0.1); }
+  .input-box::placeholder { color: #b0bac5; }
+
   .send-btn {
-    background: #238636; color: #fff; border: none; border-radius: 8px;
-    padding: 10px 20px; font-size: 14px; cursor: pointer; transition: background 0.15s; white-space: nowrap;
+    background: linear-gradient(135deg, #3d6acc, #2952b0);
+    color: #fff; border: none; border-radius: 10px;
+    padding: 11px 24px; font-size: 14px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(61,106,204,0.3);
   }
-  .send-btn:hover:not(:disabled) { background: #2ea043; }
-  .send-btn:disabled { background: #21262d; color: #6e7681; cursor: not-allowed; }
-  .input-hint { text-align: center; font-size: 12px; color: #6e7681; margin-top: 8px; }
+  .send-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #4a7ae0, #3460c4);
+    box-shadow: 0 4px 12px rgba(61,106,204,0.4);
+    transform: translateY(-1px);
+  }
+  .send-btn:disabled { background: #e8ecf0; color: #b0bac5; cursor: not-allowed; box-shadow: none; }
 
-  .loading-dots span { display: inline-block; animation: blink 1.4s infinite both; font-size: 20px; color: #388bfd; }
-  .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
-  .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes blink { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }
+  .input-hint { text-align: center; font-size: 12px; color: #c0c8d4; margin-top: 8px; }
 
-  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar { width: 5px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb { background: #dde3ea; border-radius: 3px; }
 </style>
 </head>
 <body>
 <div id="app">
+
   <div class="header">
-    <span class="header-icon">🛡️</span>
-    <h1>武器装备情报系统</h1>
-    <span class="header-sub">WEAPON INTELLIGENCE SYSTEM · 2026</span>
+    <div class="header-logo">🛡️</div>
+    <span class="header-title">武器装备情报系统</span>
+    <span class="header-sub">WEAPON INTELLIGENCE SYSTEM</span>
+    <span class="header-badge">2026 · 美以伊冲突</span>
   </div>
 
   <div class="main">
     <div class="sidebar">
       <div class="sidebar-title">查询历史</div>
       <div class="history-list">
-        <div v-if="history.length === 0" class="no-history">暂无查询记录</div>
+        <div v-if="history.length === 0" class="no-history">
+          <div style="font-size:28px;margin-bottom:8px">📋</div>
+          暂无查询记录
+        </div>
         <div
           v-for="(h, i) in history" :key="i"
           class="history-item" :class="{ active: currentIndex === i }"
           @click="loadHistory(i)"
         >
           <div class="history-query">{{ h.query }}</div>
-          <div class="history-meta">找到 {{ h.results.length }} 条结果</div>
+          <div class="history-meta">匹配 {{ h.results.length }} 条装备</div>
         </div>
       </div>
     </div>
 
     <div class="content">
       <div class="results-area">
+
+        <!-- 欢迎页 -->
         <div v-if="!currentResults && !loading" class="welcome">
-          <div class="welcome-icon">🔍</div>
-          <h2>开始查询</h2>
-          <p>输入武器名称、国家、制导方式等关键词</p>
+          <div class="welcome-icon-wrap">🔍</div>
+          <h2>装备情报检索</h2>
+          <p>输入武器名称、国家或技术关键词进行查询</p>
+          <div class="welcome-tips">
+            <span class="welcome-tip" @click="quickSearch('美国')">🇺🇸 美国</span>
+            <span class="welcome-tip" @click="quickSearch('以色列')">🇮🇱 以色列</span>
+            <span class="welcome-tip" @click="quickSearch('伊朗')">🇮🇷 伊朗</span>
+            <span class="welcome-tip" @click="quickSearch('高超音速')">⚡ 高超音速</span>
+            <span class="welcome-tip" @click="quickSearch('无人机')">✈️ 无人机</span>
+            <span class="welcome-tip" @click="quickSearch('防空')">🛡️ 防空系统</span>
+          </div>
         </div>
 
-        <div v-if="loading" class="welcome">
-          <div class="loading-dots"><span>·</span><span>·</span><span>·</span></div>
-          <p>正在检索...</p>
+        <!-- 加载中 -->
+        <div v-if="loading" class="loading-wrap">
+          <div class="spinner"></div>
+          <div class="loading-text">正在检索...</div>
         </div>
 
+        <!-- 结果 -->
         <div v-if="currentResults && !loading">
           <div class="result-header">
-            <span class="query-text">「{{ currentQuery }}」的查询结果</span>
-            <span class="result-count">{{ currentResults.length }} 条匹配</span>
+            <span class="result-query">
+              「<span class="result-keyword">{{ currentQuery }}</span>」的查询结果
+            </span>
+            <span class="result-count">共 {{ currentResults.length }} 条</span>
           </div>
 
           <div v-if="currentResults.length === 0" class="no-result">
-            未找到相关装备，请尝试其他关键词
+            <div class="no-result-icon">🔎</div>
+            <div>未找到相关装备，请尝试其他关键词</div>
           </div>
 
           <div v-else class="cards-grid">
             <div v-for="(item, idx) in currentResults" :key="idx" class="card">
-              <img
-                v-if="item['典型照片']"
-                :src="item['典型照片']"
-                class="card-img"
-                :alt="item['武器类别']"
-                @error="$event.target.style.display='none'"
-              >
-              <div v-else class="card-img-placeholder">🚀</div>
+              <div class="card-img-wrap">
+                <img
+                  v-if="item['典型照片']"
+                  :src="item['典型照片']"
+                  class="card-img"
+                  :alt="item['武器类别']"
+                  @error="$event.target.style.display='none'"
+                >
+                <div v-else class="card-img-placeholder">
+                  {{ item.type === '导弹' ? '🚀' : '🛡️' }}
+                </div>
+                <span class="card-type-badge" :class="item.type === '导弹' ? 'type-missile' : 'type-defense'">
+                  {{ item.type }}
+                </span>
+              </div>
 
               <div class="card-body">
-                <div class="card-top">
+                <div class="card-header">
                   <div class="card-name">{{ item['武器类别'] }}</div>
-                  <div class="badges">
-                    <span class="badge" :class="item.type === '导弹' ? 'badge-missile' : 'badge-defense'">
-                      {{ item.type }}
-                    </span>
-                    <span class="badge badge-country">{{ item['参战国家'] }}</span>
+                  <div class="card-meta">
+                    <span class="meta-tag tag-country">{{ item['参战国家'] }}</span>
                   </div>
                 </div>
 
-                <div v-if="item['简介']" class="card-section">
-                  <div class="section-label">装备简介</div>
-                  <div class="section-text" :class="{ collapsed: !expanded[idx] }">{{ item['简介'] }}</div>
+                <div v-if="item['简介']" class="info-block">
+                  <div class="info-label">装备简介</div>
+                  <div class="info-text" :class="{ collapsed: !expanded[idx] }">{{ item['简介'] }}</div>
                   <button class="expand-btn" @click="toggle(idx)">
                     {{ expanded[idx] ? '收起 ▲' : '展开全文 ▼' }}
                   </button>
@@ -220,17 +373,17 @@
 
                 <div class="divider"></div>
 
-                <div v-if="item['核心性能']" class="card-section">
-                  <div class="section-label">核心性能</div>
-                  <div class="section-text collapsed">{{ item['核心性能'] }}</div>
+                <div v-if="item['核心性能']" class="info-block">
+                  <div class="info-label">核心性能</div>
+                  <div class="info-text collapsed">{{ item['核心性能'] }}</div>
                 </div>
-                <div v-if="item['制导方式']" class="card-section">
-                  <div class="section-label">制导方式</div>
-                  <div class="section-text collapsed">{{ item['制导方式'] }}</div>
+                <div v-if="item['制导方式']" class="info-block">
+                  <div class="info-label">制导方式</div>
+                  <div class="info-text collapsed">{{ item['制导方式'] }}</div>
                 </div>
-                <div v-if="item['本次战争使用情况及战果']" class="card-section">
-                  <div class="section-label">实战情况</div>
-                  <div class="section-text collapsed">{{ item['本次战争使用情况及战果'] }}</div>
+                <div v-if="item['本次战争使用情况及战果']" class="info-block">
+                  <div class="info-label">实战情况</div>
+                  <div class="info-text collapsed">{{ item['本次战争使用情况及战果'] }}</div>
                 </div>
               </div>
             </div>
@@ -240,15 +393,18 @@
 
       <div class="input-area">
         <div class="input-row">
-          <input
-            class="input-box"
-            v-model="query"
-            placeholder="输入关键词，如：美国 / 巡航导弹 / GPS制导 / 伊朗防空..."
-            @keyup.enter="search"
-          >
+          <div class="input-wrap">
+            <span class="input-icon">🔍</span>
+            <input
+              class="input-box"
+              v-model="query"
+              placeholder="输入武器名称、国家、制导方式、性能特征..."
+              @keyup.enter="search"
+            >
+          </div>
           <button class="send-btn" @click="search" :disabled="loading || !query.trim()">查询</button>
         </div>
-        <div class="input-hint">支持武器名称、国家、性能特征等模糊查询</div>
+        <div class="input-hint">支持模糊匹配 · 按 Enter 快速查询</div>
       </div>
     </div>
   </div>
@@ -259,7 +415,6 @@ const { createApp, ref, reactive } = Vue
 
 const SEARCH_FIELDS = ['参战国家', '武器类别', '简介', '核心性能', '制导方式', '本次战争使用情况及战果']
 
-// Levenshtein 编辑距离
 function levenshtein(a, b) {
   const m = a.length, n = b.length
   const dp = Array.from({ length: m + 1 }, (_, i) => [i])
@@ -272,25 +427,17 @@ function levenshtein(a, b) {
   return dp[m][n]
 }
 
-// 模糊匹配：精确包含 + 编辑距离相似
 function fuzzyMatch(text, kw) {
-  text = text.toLowerCase()
-  kw = kw.toLowerCase()
+  text = text.toLowerCase(); kw = kw.toLowerCase()
   if (!kw) return 0
-  // 精确包含：高分
   const exactCount = (text.match(new RegExp(kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length
   if (exactCount > 0) return exactCount * 10
-
-  // 滑动窗口：在文本中找与kw最相似的子串
   if (kw.length < 2) return 0
-  const winLen = kw.length
   let minDist = Infinity
-  for (let i = 0; i <= text.length - winLen; i++) {
-    const sub = text.slice(i, i + winLen)
-    const dist = levenshtein(sub, kw)
+  for (let i = 0; i <= text.length - kw.length; i++) {
+    const dist = levenshtein(text.slice(i, i + kw.length), kw)
     if (dist < minDist) minDist = dist
   }
-  // 允许最多 floor(kw.length/3) 的编辑距离
   const threshold = Math.floor(kw.length / 3)
   if (minDist <= threshold && threshold > 0) return Math.max(1, 5 - minDist)
   return 0
@@ -309,18 +456,10 @@ function scoreItem(item, keywords) {
   let score = 0
   for (const kw of keywords) {
     if (!kw) continue
-    // 武器类别：权重最高
-    const nameScore = fuzzyMatch(String(item['武器类别'] || ''), kw)
-    if (nameScore > 0) score += nameScore * 3
-
-    // 参战国家：次高
-    const countryScore = fuzzyMatch(String(item['参战国家'] || ''), kw)
-    if (countryScore > 0) score += countryScore * 2
-
-    // 其余字段
-    for (const f of SEARCH_FIELDS.slice(2)) {
+    score += fuzzyMatch(String(item['武器类别'] || ''), kw) * 3
+    score += fuzzyMatch(String(item['参战国家'] || ''), kw) * 2
+    for (const f of SEARCH_FIELDS.slice(2))
       score += fuzzyMatch(String(item[f] || ''), kw)
-    }
   }
   return score
 }
@@ -336,19 +475,15 @@ createApp({
     const currentIndex = ref(-1)
     const expanded = reactive({})
 
-    fetch('missiles.json')
-      .then(r => r.json())
-      .then(d => { allData.value = d })
+    fetch('missiles.json').then(r => r.json()).then(d => { allData.value = d })
 
     function toggle(idx) { expanded[idx] = !expanded[idx] }
 
-    function search() {
-      const q = query.value.trim()
+    function doSearch(q) {
       if (!q || loading.value) return
       loading.value = true
       currentResults.value = null
       Object.keys(expanded).forEach(k => delete expanded[k])
-
       setTimeout(() => {
         const keywords = tokenize(q)
         const scored = allData.value
@@ -357,7 +492,6 @@ createApp({
           .sort((a, b) => b.score - a.score)
           .slice(0, 10)
           .map(x => x.item)
-
         currentResults.value = scored
         currentQuery.value = q
         history.value.unshift({ query: q, results: scored })
@@ -367,6 +501,9 @@ createApp({
       }, 200)
     }
 
+    function search() { doSearch(query.value.trim()) }
+    function quickSearch(q) { doSearch(q) }
+
     function loadHistory(i) {
       currentIndex.value = i
       currentResults.value = history.value[i].results
@@ -374,7 +511,7 @@ createApp({
       Object.keys(expanded).forEach(k => delete expanded[k])
     }
 
-    return { query, loading, history, currentResults, currentQuery, currentIndex, expanded, search, toggle, loadHistory }
+    return { query, loading, history, currentResults, currentQuery, currentIndex, expanded, search, quickSearch, toggle, loadHistory }
   }
 }).mount('#app')
 </script>
