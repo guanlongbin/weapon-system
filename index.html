@@ -6,205 +6,308 @@
 <title>武器装备情报系统</title>
 <script src="static/vue.global.prod.js"></script>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
-    background: #f5f6fa;
-    color: #2c3e50;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+  :root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --bg-dark: #0f172a;
+    --bg-card: rgba(30, 41, 59, 0.7);
+    --bg-glass: rgba(255, 255, 255, 0.05);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border: rgba(255, 255, 255, 0.1);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 
-  /* ===== 顶栏 ===== */
+  body {
+    font-family: 'Inter', 'PingFang SC', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #app { height: 100vh; display: flex; flex-direction: column; }
+
   .header {
-    background: linear-gradient(135deg, #1a2a4a 0%, #2d4a7a 100%);
-    padding: 0 32px;
-    height: 64px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 12px 28px;
     display: flex;
     align-items: center;
-    gap: 14px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-    flex-shrink: 0;
+    gap: 16px;
+    box-shadow: var(--shadow);
   }
-  .header-logo {
-    width: 36px; height: 36px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 8px;
+  .header-icon {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
+    font-size: 20px;
   }
-  .header-title { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 2px; }
-  .header-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-left: 4px; }
+  .header-title { font-size: 16px; font-weight: 700; }
   .header-badge {
-    margin-left: auto;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: rgba(255,255,255,0.8);
+    margin-left: 12px;
+    background: rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(99, 102, 241, 0.3);
     border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 12px;
+    padding: 4px 12px;
+    font-size: 11px;
   }
 
-  /* ===== 布局 ===== */
-  .main { display: flex; flex: 1; overflow: hidden; }
+  .main { 
+    flex: 1; 
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 24px;
+    padding: 100px 24px 24px;
+  }
 
-  /* ===== 侧边栏 ===== */
   .sidebar {
-    width: 240px;
-    background: #fff;
-    border-right: 1px solid #e8ecf0;
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
-  }
-  .sidebar-title {
-    padding: 16px 20px 12px;
-    font-size: 11px;
-    font-weight: 600;
-    color: #9aa5b4;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 1px solid #f0f2f5;
-  }
-  .history-list { flex: 1; overflow-y: auto; padding: 8px; }
-  .history-item {
-    padding: 10px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 2px;
-    transition: all 0.15s;
-    border: 1px solid transparent;
-  }
-  .history-item:hover { background: #f5f7fa; }
-  .history-item.active { background: #eef4ff; border-color: #c5d8ff; }
-  .history-query {
-    font-size: 13px; color: #2c3e50; font-weight: 500;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  .history-meta { font-size: 11px; color: #9aa5b4; margin-top: 2px; }
-  .no-history { padding: 32px 16px; font-size: 13px; color: #b0bac5; text-align: center; }
-
-  /* ===== 内容区 ===== */
-  .content { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
-
-  .results-area { flex: 1; overflow-y: auto; padding: 24px 28px; }
-
-  /* 欢迎页 */
-  .welcome {
-    display: flex; flex-direction: column; align-items: center;
-    justify-content: center; height: 100%; gap: 16px;
-  }
-  .welcome-icon-wrap {
-    width: 80px; height: 80px;
-    background: linear-gradient(135deg, #eef4ff, #dde9ff);
-    border-radius: 24px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 36px;
-  }
-  .welcome h2 { font-size: 22px; color: #2c3e50; font-weight: 600; }
-  .welcome p { font-size: 14px; color: #9aa5b4; }
-  .welcome-tips {
-    display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; justify-content: center;
-  }
-  .welcome-tip {
-    background: #fff; border: 1px solid #e8ecf0;
-    border-radius: 20px; padding: 6px 16px;
-    font-size: 13px; color: #5a6a7e; cursor: pointer;
-    transition: all 0.15s; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-  }
-  .welcome-tip:hover { border-color: #3d6acc; color: #3d6acc; background: #eef4ff; }
-
-  /* 加载 */
-  .loading-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 12px; }
-  .spinner {
-    width: 36px; height: 36px;
-    border: 3px solid #e8ecf0;
-    border-top-color: #3d6acc;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .loading-text { font-size: 14px; color: #9aa5b4; }
-
-  /* 结果头 */
-  .result-header {
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 20px; padding-bottom: 16px;
-    border-bottom: 1px solid #e8ecf0;
-  }
-  .result-query { font-size: 16px; font-weight: 600; color: #2c3e50; }
-  .result-keyword {
-    color: #3d6acc;
-    background: #eef4ff;
-    padding: 0 6px;
-    border-radius: 4px;
-  }
-  .result-count {
-    background: #eef4ff; color: #3d6acc;
-    border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 500;
-  }
-  .no-result {
-    text-align: center; padding: 64px 24px;
-    color: #b0bac5; font-size: 15px;
-  }
-  .no-result-icon { font-size: 40px; margin-bottom: 12px; }
-
-  /* 卡片网格 */
-  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-
-  .card {
-    background: #fff;
-    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    border: 1px solid #e8ecf0;
-    transition: all 0.2s;
   }
-  .card:hover {
-    box-shadow: 0 8px 24px rgba(61,106,204,0.12);
-    border-color: #c5d8ff;
+  .sidebar-header {
+    padding: 24px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .history-list { 
+    flex: 1; 
+    overflow-y: auto; 
+    padding: 16px;
+  }
+  .history-item {
+    padding: 16px;
+    border-radius: 16px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+  }
+  .history-item:hover { 
+    background: rgba(255,255,255,0.05);
+  }
+  .history-item.active { 
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.3);
+  }
+  .history-query {
+    font-size: 14px; 
+    font-weight: 500;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+  }
+  .history-meta { 
+    font-size: 12px; 
+    color: var(--text-secondary); 
+    margin-top: 6px;
+  }
+  .no-history { 
+    padding: 48px 24px; 
+    text-align: center;
+    color: var(--text-secondary);
+  }
+
+  .content { 
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden;
+    gap: 20px;
+  }
+
+  .search-float {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 20px 24px;
+  }
+  .search-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .search-input-wrap {
+    flex: 1;
+    position: relative;
+  }
+  .search-input {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 20px;
+    color: var(--text-primary);
+    font-size: 15px;
+    outline: none;
+  }
+  .search-input:focus {
+    border-color: var(--primary);
+  }
+  .search-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 16px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .quick-tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .quick-tag {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .quick-tag:hover {
+    background: rgba(99, 102, 241, 0.2);
     transform: translateY(-2px);
   }
 
-  .card-img-wrap { position: relative; }
-  .card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+  .results-scroll {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 32px;
+  }
+  .welcome-orb {
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .loading-ring {
+    width: 60px;
+    height: 60px;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 20px;
+    padding: 0 8px 20px;
+  }
+
+  .weapon-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s;
+  }
+  .weapon-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(99, 102, 241, 0.3);
+  }
+
+  .card-visual {
+    position: relative;
+    height: 220px;
+  }
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .card-img-placeholder {
-    width: 100%; height: 200px;
-    background: linear-gradient(135deg, #f0f4ff, #e8ecf0);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 48px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
   }
-  .card-type-badge {
-    position: absolute; top: 12px; left: 12px;
-    padding: 4px 10px; border-radius: 20px;
-    font-size: 11px; font-weight: 600;
-    backdrop-filter: blur(8px);
+  .type-pill {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
   }
-  .type-missile { background: rgba(220,53,69,0.85); color: #fff; }
-  .type-defense { background: rgba(25,118,210,0.85); color: #fff; }
+  .pill-missile { background: rgba(220,53,69,0.9); color: #fff; }
+  .pill-defense { background: rgba(25,118,210,0.9); color: #fff; }
 
-  .card-body { padding: 18px; }
-
-  .card-header { margin-bottom: 12px; }
-  .card-name { font-size: 15px; font-weight: 700; color: #1a2a4a; line-height: 1.4; margin-bottom: 6px; }
-  .card-meta { display: flex; gap: 6px; flex-wrap: wrap; }
-  .meta-tag {
-    padding: 3px 10px; border-radius: 6px;
-    font-size: 11px; font-weight: 500;
+  .card-body { padding: 24px; }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
   }
-  .tag-country { background: #f0faf0; color: #2e7d32; border: 1px solid #c8e6c9; }
+  .card-country {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
 
-  .divider { height: 1px; background: #f0f2f5; margin: 12px 0; }
-
-  .info-block { margin-bottom: 10px; }
+  .info-section { margin-bottom: 16px; }
   .info-label {
-    font-size: 10px; font-weight: 600; color: #9aa5b4;
-    text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
   }
   .info-text {
-    font-size: 13px; color: #5a6a7e; line-height: 1.65;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-secondary);
   }
   .info-text.collapsed {
     display: -webkit-box;
@@ -213,81 +316,29 @@
     overflow: hidden;
   }
   .expand-btn {
-    background: none; border: none;
-    color: #3d6acc; font-size: 12px; cursor: pointer;
-    padding: 4px 0; margin-top: 2px; font-weight: 500;
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 8px;
   }
-  .expand-btn:hover { text-decoration: underline; }
-
-  /* ===== 输入区 ===== */
-  .input-area {
-    border-top: 1px solid #e8ecf0;
-    padding: 16px 28px 18px;
-    background: #fff;
-    flex-shrink: 0;
-  }
-  .input-row {
-    display: flex; gap: 10px; align-items: center;
-    max-width: 860px; margin: 0 auto;
-  }
-  .input-wrap {
-    flex: 1; position: relative;
-  }
-  .input-icon {
-    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
-    color: #b0bac5; font-size: 16px; pointer-events: none;
-  }
-  .input-box {
-    width: 100%;
-    background: #f5f7fa;
-    border: 1.5px solid #e8ecf0;
-    border-radius: 10px;
-    padding: 11px 16px 11px 40px;
-    color: #2c3e50; font-size: 14px; outline: none;
-    transition: all 0.2s;
-  }
-  .input-box:focus { border-color: #3d6acc; background: #fff; box-shadow: 0 0 0 3px rgba(61,106,204,0.1); }
-  .input-box::placeholder { color: #b0bac5; }
-
-  .send-btn {
-    background: linear-gradient(135deg, #3d6acc, #2952b0);
-    color: #fff; border: none; border-radius: 10px;
-    padding: 11px 24px; font-size: 14px; font-weight: 600;
-    cursor: pointer; transition: all 0.2s; white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(61,106,204,0.3);
-  }
-  .send-btn:hover:not(:disabled) {
-    background: linear-gradient(135deg, #4a7ae0, #3460c4);
-    box-shadow: 0 4px 12px rgba(61,106,204,0.4);
-    transform: translateY(-1px);
-  }
-  .send-btn:disabled { background: #e8ecf0; color: #b0bac5; cursor: not-allowed; box-shadow: none; }
-
-  .input-hint { text-align: center; font-size: 12px; color: #c0c8d4; margin-top: 8px; }
-
-  ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #dde3ea; border-radius: 3px; }
 </style>
 </head>
 <body>
 <div id="app">
 
   <div class="header">
-    <div class="header-logo">🛡️</div>
+    <div class="header-icon">🛡️</div>
     <span class="header-title">武器装备情报系统</span>
-    <span class="header-sub">WEAPON INTELLIGENCE SYSTEM</span>
     <span class="header-badge">2026 · 美以伊冲突</span>
   </div>
 
   <div class="main">
     <div class="sidebar">
-      <div class="sidebar-title">查询历史</div>
+      <div class="sidebar-header">📋 查询历史</div>
       <div class="history-list">
-        <div v-if="history.length === 0" class="no-history">
-          <div style="font-size:28px;margin-bottom:8px">📋</div>
-          暂无查询记录
-        </div>
+        <div v-if="history.length === 0" class="no-history">暂无查询记录</div>
         <div
           v-for="(h, i) in history" :key="i"
           class="history-item" :class="{ active: currentIndex === i }"
@@ -300,70 +351,67 @@
     </div>
 
     <div class="content">
-      <div class="results-area">
+      <div class="search-float">
+        <div class="search-row">
+          <div class="search-input-wrap">
+            <input
+              class="search-input"
+              v-model="query"
+              placeholder="输入武器名称、国家或技术关键词..."
+              @keyup.enter="search"
+            >
+          </div>
+          <button class="search-btn" @click="search">查询</button>
+        </div>
+        <div class="quick-tags">
+          <span class="quick-tag" @click="quickSearch('美国')">🇺🇸 美国</span>
+          <span class="quick-tag" @click="quickSearch('以色列')">🇮🇱 以色列</span>
+          <span class="quick-tag" @click="quickSearch('伊朗')">🇮🇷 伊朗</span>
+          <span class="quick-tag" @click="quickSearch('高超音速')">⚡ 高超音速</span>
+          <span class="quick-tag" @click="quickSearch('无人机')">✈️ 无人机</span>
+          <span class="quick-tag" @click="quickSearch('防空')">🛡️ 防空</span>
+        </div>
+      </div>
 
-        <!-- 欢迎页 -->
+      <div class="results-scroll">
         <div v-if="!currentResults && !loading" class="welcome">
-          <div class="welcome-icon-wrap">🔍</div>
-          <h2>装备情报检索</h2>
-          <p>输入武器名称、国家或技术关键词进行查询</p>
-          <div class="welcome-tips">
-            <span class="welcome-tip" @click="quickSearch('美国')">🇺🇸 美国</span>
-            <span class="welcome-tip" @click="quickSearch('以色列')">🇮🇱 以色列</span>
-            <span class="welcome-tip" @click="quickSearch('伊朗')">🇮🇷 伊朗</span>
-            <span class="welcome-tip" @click="quickSearch('高超音速')">⚡ 高超音速</span>
-            <span class="welcome-tip" @click="quickSearch('无人机')">✈️ 无人机</span>
-            <span class="welcome-tip" @click="quickSearch('防空')">🛡️ 防空系统</span>
-          </div>
+          <div class="welcome-orb">🔍</div>
+          <h2>装备情报检索系统</h2>
+          <p>输入关键词开始查询...</p>
         </div>
 
-        <!-- 加载中 -->
-        <div v-if="loading" class="loading-wrap">
-          <div class="spinner"></div>
-          <div class="loading-text">正在检索...</div>
+        <div v-if="loading" class="welcome">
+          <div class="loading-ring"></div>
+          <p>正在检索...</p>
         </div>
 
-        <!-- 结果 -->
         <div v-if="currentResults && !loading">
-          <div class="result-header">
-            <span class="result-query">
-              「<span class="result-keyword">{{ currentQuery }}</span>」的查询结果
-            </span>
-            <span class="result-count">共 {{ currentResults.length }} 条</span>
-          </div>
-
-          <div v-if="currentResults.length === 0" class="no-result">
-            <div class="no-result-icon">🔎</div>
-            <div>未找到相关装备，请尝试其他关键词</div>
+          <div v-if="currentResults.length === 0" class="welcome">
+            <p>未找到相关装备</p>
           </div>
 
           <div v-else class="cards-grid">
-            <div v-for="(item, idx) in currentResults" :key="idx" class="card">
-              <div class="card-img-wrap">
+            <div v-for="(item, idx) in currentResults" :key="idx" class="weapon-card">
+              <div class="card-visual">
                 <img
                   v-if="item['典型照片']"
                   :src="item['典型照片']"
                   class="card-img"
-                  :alt="item['武器类别']"
                   @error="$event.target.style.display='none'"
                 >
                 <div v-else class="card-img-placeholder">
                   {{ item.type === '导弹' ? '🚀' : '🛡️' }}
                 </div>
-                <span class="card-type-badge" :class="item.type === '导弹' ? 'type-missile' : 'type-defense'">
+                <span class="type-pill" :class="item.type === '导弹' ? 'pill-missile' : 'pill-defense'">
                   {{ item.type }}
                 </span>
               </div>
 
               <div class="card-body">
-                <div class="card-header">
-                  <div class="card-name">{{ item['武器类别'] }}</div>
-                  <div class="card-meta">
-                    <span class="meta-tag tag-country">{{ item['参战国家'] }}</span>
-                  </div>
-                </div>
+                <div class="card-title">{{ item['武器类别'] }}</div>
+                <span class="card-country">{{ item['参战国家'] }}</span>
 
-                <div v-if="item['简介']" class="info-block">
+                <div v-if="item['简介']" class="info-section">
                   <div class="info-label">装备简介</div>
                   <div class="info-text" :class="{ collapsed: !expanded[idx] }">{{ item['简介'] }}</div>
                   <button class="expand-btn" @click="toggle(idx)">
@@ -371,17 +419,15 @@
                   </button>
                 </div>
 
-                <div class="divider"></div>
-
-                <div v-if="item['核心性能']" class="info-block">
+                <div v-if="item['核心性能']" class="info-section">
                   <div class="info-label">核心性能</div>
                   <div class="info-text collapsed">{{ item['核心性能'] }}</div>
                 </div>
-                <div v-if="item['制导方式']" class="info-block">
+                <div v-if="item['制导方式']" class="info-section">
                   <div class="info-label">制导方式</div>
                   <div class="info-text collapsed">{{ item['制导方式'] }}</div>
                 </div>
-                <div v-if="item['本次战争使用情况及战果']" class="info-block">
+                <div v-if="item['本次战争使用情况及战果']" class="info-section">
                   <div class="info-label">实战情况</div>
                   <div class="info-text collapsed">{{ item['本次战争使用情况及战果'] }}</div>
                 </div>
@@ -389,22 +435,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="input-area">
-        <div class="input-row">
-          <div class="input-wrap">
-            <span class="input-icon">🔍</span>
-            <input
-              class="input-box"
-              v-model="query"
-              placeholder="输入武器名称、国家、制导方式、性能特征..."
-              @keyup.enter="search"
-            >
-          </div>
-          <button class="send-btn" @click="search" :disabled="loading || !query.trim()">查询</button>
-        </div>
-        <div class="input-hint">支持模糊匹配 · 按 Enter 快速查询</div>
       </div>
     </div>
   </div>
