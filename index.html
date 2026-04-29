@@ -6,544 +6,259 @@
 <title>武器装备情报系统</title>
 <script src="static/vue.global.prod.js"></script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-  
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --primary: #6366f1;
-    --primary-dark: #4f46e5;
-    --bg-dark: #0f172a;
-    --bg-card: rgba(30, 41, 59, 0.7);
-    --bg-glass: rgba(255, 255, 255, 0.05);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --border: rgba(255, 255, 255, 0.1);
-    --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  }
-
-  body {
-    font-family: 'Inter', 'PingFang SC', sans-serif;
-    background: var(--bg-dark);
-    color: var(--text-primary);
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  #app { height: 100vh; display: flex; flex-direction: column; }
-
-  .header {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    background: var(--bg-glass);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--border);
-    border-radius: 50px;
-    padding: 12px 28px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    box-shadow: var(--shadow);
-  }
-  .header-icon {
-    width: 40px; height: 40px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-  }
-  .header-title { font-size: 16px; font-weight: 700; }
-  .header-badge {
-    margin-left: 12px;
-    background: rgba(99, 102, 241, 0.2);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 11px;
-  }
-
-  .main { 
-    flex: 1; 
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 24px;
-    padding: 100px 24px 24px;
-  }
-
-  .sidebar {
-    background: var(--bg-card);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  .sidebar-header {
-    padding: 24px;
-    border-bottom: 1px solid var(--border);
-    font-size: 14px;
-    font-weight: 600;
-  }
-  .history-list { 
-    flex: 1; 
-    overflow-y: auto; 
-    padding: 16px;
-  }
-  .history-item {
-    padding: 16px;
-    border-radius: 16px;
-    cursor: pointer;
-    margin-bottom: 8px;
-    border: 1px solid transparent;
-    transition: all 0.3s;
-  }
-  .history-item:hover { 
-    background: rgba(255,255,255,0.05);
-  }
-  .history-item.active { 
-    background: rgba(99, 102, 241, 0.15);
-    border-color: rgba(99, 102, 241, 0.3);
-  }
-  .history-query {
-    font-size: 14px; 
-    font-weight: 500;
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis;
-  }
-  .history-meta { 
-    font-size: 12px; 
-    color: var(--text-secondary); 
-    margin-top: 6px;
-  }
-  .no-history { 
-    padding: 48px 24px; 
-    text-align: center;
-    color: var(--text-secondary);
-  }
-
-  .content { 
-    display: flex; 
-    flex-direction: column; 
-    overflow: hidden;
-    gap: 20px;
-  }
-
-  .search-float {
-    background: var(--bg-card);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 20px 24px;
-  }
-  .search-row {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-  }
-  .search-input-wrap {
-    flex: 1;
-    position: relative;
-  }
-  .search-input {
-    width: 100%;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 16px 20px;
-    color: var(--text-primary);
-    font-size: 15px;
-    outline: none;
-  }
-  .search-input:focus {
-    border-color: var(--primary);
-  }
-  .search-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    border: none;
-    border-radius: 16px;
-    padding: 16px 32px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  .quick-tags {
-    display: flex;
-    gap: 10px;
-    margin-top: 16px;
-    flex-wrap: wrap;
-  }
-  .quick-tag {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 8px 16px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .quick-tag:hover {
-    background: rgba(99, 102, 241, 0.2);
-    transform: translateY(-2px);
-  }
-
-  .results-scroll {
-    flex: 1;
-    overflow-y: auto;
-  }
-
-  .welcome {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    gap: 32px;
-  }
-  .welcome-orb {
-    width: 140px;
-    height: 140px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
-    animation: float 6s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  .loading-ring {
-    width: 60px;
-    height: 60px;
-    border: 3px solid rgba(255,255,255,0.1);
-    border-top-color: var(--primary);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 20px;
-    padding: 0 8px 20px;
-  }
-
-  .weapon-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    overflow: hidden;
-    transition: all 0.4s;
-  }
-  .weapon-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(99, 102, 241, 0.3);
-  }
-
-  .card-visual {
-    position: relative;
-    height: 220px;
-  }
-  .card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .card-img-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 64px;
-  }
-  .type-pill {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-  }
-  .pill-missile { background: rgba(220,53,69,0.9); color: #fff; }
-  .pill-defense { background: rgba(25,118,210,0.9); color: #fff; }
-
-  .card-body { padding: 24px; }
-  .card-title {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-  .card-country {
-    display: inline-block;
-    background: rgba(255,255,255,0.1);
-    padding: 4px 12px;
-    border-radius: 8px;
-    font-size: 12px;
-    margin-bottom: 16px;
-  }
-
-  .info-section { margin-bottom: 16px; }
-  .info-label {
-    font-size: 11px;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
-  }
-  .info-text {
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-  }
-  .info-text.collapsed {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .expand-btn {
-    background: none;
-    border: none;
-    color: var(--primary);
-    font-size: 12px;
-    cursor: pointer;
-    margin-top: 8px;
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f4f6f9;--white:#fff;--border:#e2e5ea;--t1:#1a1d23;--t2:#4b5563;--t3:#9ca3af;--blue:#2563eb;--blue-bg:#eff6ff}
+html,body{height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--t1)}
+.topbar{position:sticky;top:0;z-index:100;height:56px;background:var(--white);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:14px;padding:0 24px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.brand{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.brand-ico{width:30px;height:30px;background:var(--blue);border-radius:7px;display:flex;align-items:center;justify-content:center}
+.brand-ico svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.brand-name{font-size:15px;font-weight:700}
+.sep{width:1px;height:18px;background:var(--border);flex-shrink:0}
+.sw{flex:1;max-width:560px;position:relative}
+.sw .sico{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--t3);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.si{width:100%;height:36px;padding:0 34px;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;font-size:13.5px;color:var(--t1);outline:none;transition:.18s}
+.si:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.si::placeholder{color:var(--t3)}
+.sclear{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--t3);display:flex;align-items:center;padding:3px;border-radius:50%;transition:.15s}
+.sclear:hover{background:var(--border)}
+.sclear svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round}
+.ttag{margin-left:auto;font-size:11.5px;color:var(--t3);white-space:nowrap;flex-shrink:0}
+.layout{display:flex;min-height:calc(100vh - 56px)}
+.sidebar{width:220px;flex-shrink:0;background:var(--white);border-right:1px solid var(--border);padding:16px 0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto}
+.sbl{font-size:10.5px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.9px;padding:0 14px;margin:14px 0 4px}
+.sbi{display:flex;align-items:center;gap:9px;padding:7px 14px;font-size:13px;color:var(--t2);cursor:pointer;border-left:2.5px solid transparent;transition:.14s}
+.sbi:hover{background:var(--bg);color:var(--t1)}
+.sbi.active{background:var(--blue-bg);color:var(--blue);border-left-color:var(--blue);font-weight:500}
+.sbi svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.sbc{margin-left:auto;font-size:11px;color:var(--t3);background:var(--bg);padding:1px 6px;border-radius:9px}
+.sbdiv{height:1px;background:#edf0f4;margin:8px 14px}
+.sbq{display:block;padding:6px 14px;font-size:12.5px;color:var(--t2);cursor:pointer;transition:.14s}
+.sbq:hover{background:var(--blue-bg);color:var(--blue)}
+.main{flex:1;padding:24px 28px;min-width:0}
+.welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px 24px;text-align:center}
+.wico{width:60px;height:60px;background:var(--blue-bg);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.wico svg{width:28px;height:28px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.welcome h2{font-size:20px;font-weight:700;margin-bottom:8px}
+.welcome p{font-size:13.5px;color:var(--t2);line-height:1.7;max-width:380px;margin-bottom:24px}
+.wchips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.wchip{padding:5px 13px;background:var(--white);border:1px solid var(--border);border-radius:16px;font-size:13px;color:var(--t2);cursor:pointer;transition:.15s}
+.wchip:hover{background:var(--blue-bg);border-color:rgba(37,99,235,.25);color:var(--blue)}
+.rhd{display:flex;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:8px}
+.rht{font-size:14.5px;font-weight:500}
+.rht span{color:var(--blue);font-weight:700}
+.rhc{font-size:12px;color:var(--t3);background:var(--bg);padding:2px 9px;border-radius:10px;border:1px solid var(--border);margin-left:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:14px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:.2s}
+.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.09);transform:translateY(-2px);border-color:rgba(37,99,235,.2)}
+.cimg{position:relative;height:162px;background:var(--bg);overflow:hidden}
+.cimg img{width:100%;height:100%;object-fit:cover;transition:.3s;display:block}
+.card:hover .cimg img{transform:scale(1.04)}
+.noimg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f0f4ff,#e8edf7)}
+.noimg svg{width:36px;height:36px;stroke:#c5cfe0;fill:none;stroke-width:1.5;stroke-linecap:round}
+.bt{position:absolute;top:8px;left:8px;padding:2px 7px;border-radius:5px;font-size:10.5px;font-weight:700;backdrop-filter:blur(6px)}
+.bt.m{background:rgba(254,226,226,.92);color:#b91c1c}
+.bt.d{background:rgba(219,234,254,.92);color:#1d4ed8}
+.bc{position:absolute;top:8px;right:8px;padding:2px 7px;border-radius:5px;font-size:10.5px;font-weight:700;backdrop-filter:blur(6px)}
+.bc.us{background:rgba(240,253,244,.92);color:#166534}
+.bc.il{background:rgba(255,247,237,.92);color:#c2410c}
+.bc.ir{background:rgba(253,232,255,.92);color:#7e22ce}
+.cbody{padding:13px 14px 10px}
+.cname{font-size:14px;font-weight:600;line-height:1.4;margin-bottom:5px}
+.cdesc{font-size:12px;color:var(--t2);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
+.cmeta{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--t3)}
+.cmeta svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+.cfoot{padding:8px 14px;border-top:1px solid #edf0f4}
+.caction{font-size:12px;color:var(--blue);font-weight:500;display:flex;align-items:center;gap:3px}
+.caction svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.ldg{display:flex;flex-direction:column;align-items:center;gap:14px;padding:64px 24px}
+.spin{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:spin .65s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty{display:flex;flex-direction:column;align-items:center;gap:10px;padding:64px 24px;text-align:center}
+.empty svg{width:36px;height:36px;stroke:#d1d5db;fill:none;stroke-width:1.8;stroke-linecap:round}
+.ov{position:fixed;inset:0;z-index:200;background:rgba(15,20,30,.5);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:24px;animation:fi .16s ease}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.modal{background:var(--white);border-radius:14px;width:100%;max-width:680px;max-height:88vh;overflow-y:auto;box-shadow:0 16px 48px rgba(0,0,0,.14);animation:su .2s ease}
+@keyframes su{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.mimg{width:100%;height:240px;object-fit:cover;display:block;border-radius:14px 14px 0 0}
+.mnoimg{width:100%;height:180px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f0f4ff,#e8edf7);border-radius:14px 14px 0 0}
+.mnoimg svg{width:52px;height:52px;stroke:#c5cfe0;fill:none;stroke-width:1.4;stroke-linecap:round}
+.mhd{padding:18px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.mtitle{font-size:18px;font-weight:700;line-height:1.35;margin-bottom:9px}
+.mbadges{display:flex;gap:6px;flex-wrap:wrap}
+.mb{padding:3px 9px;border-radius:5px;font-size:11.5px;font-weight:700}
+.mb.m{background:#fee2e2;color:#b91c1c}
+.mb.d{background:#dbeafe;color:#1d4ed8}
+.mb.us{background:#f0fdf4;color:#166534}
+.mb.il{background:#fff7ed;color:#c2410c}
+.mb.ir{background:#fdf4ff;color:#7e22ce}
+.mclose{width:32px;height:32px;background:var(--bg);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.15s}
+.mclose:hover{background:var(--border)}
+.mclose svg{width:14px;height:14px;stroke:var(--t2);fill:none;stroke-width:2.5;stroke-linecap:round}
+.mbody{padding:18px 20px 26px}
+.dsec{margin-bottom:18px}
+.dlbl{font-size:10.5px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.dlbl::after{content:'';flex:1;height:1px;background:#edf0f4}
+.dlbl svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+.dtxt{font-size:13.5px;color:var(--t2);line-height:1.78;white-space:pre-line}
+.dtxt.hl{background:linear-gradient(to right,rgba(37,99,235,.05),transparent);border-left:3px solid var(--blue);padding:11px 13px;border-radius:0 6px 6px 0;color:var(--t1)}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:3px}
+@media(max-width:720px){.sidebar{display:none}.main{padding:16px}.topbar{padding:0 14px}.ttag{display:none}.cards{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div id="app">
-
-  <div class="header">
-    <div class="header-icon">🛡️</div>
-    <span class="header-title">武器装备情报系统</span>
-    <span class="header-badge">2026 · 美以伊冲突</span>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-ico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <span class="brand-name">武器装备情报系统</span>
   </div>
-
-  <div class="main">
-    <div class="sidebar">
-      <div class="sidebar-header">📋 查询历史</div>
-      <div class="history-list">
-        <div v-if="history.length === 0" class="no-history">暂无查询记录</div>
-        <div
-          v-for="(h, i) in history" :key="i"
-          class="history-item" :class="{ active: currentIndex === i }"
-          @click="loadHistory(i)"
-        >
-          <div class="history-query">{{ h.query }}</div>
-          <div class="history-meta">匹配 {{ h.results.length }} 条装备</div>
-        </div>
+  <div class="sep"></div>
+  <div class="sw">
+    <svg class="sico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input class="si" v-model="query" @input="onInput" @keyup.enter="doSearch" placeholder="搜索武器、国家、制导方式..." ref="inputEl">
+    <button v-if="query" class="sclear" @click="clearQ"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <span class="ttag">2026 · 美以伊冲突</span>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sbl">分类浏览</div>
+    <div class="sbi" :class="{active:filter===''}" @click="setFilter('')">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+      全部装备<span class="sbc">{{ all.length }}</span>
+    </div>
+    <div class="sbi" :class="{active:filter==='导弹'}" @click="setFilter('导弹')">
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      导弹类<span class="sbc">{{ cnt('type','导弹') }}</span>
+    </div>
+    <div class="sbi" :class="{active:filter==='防御系统'}" @click="setFilter('防御系统')">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      防御系统<span class="sbc">{{ cnt('type','防御系统') }}</span>
+    </div>
+    <div class="sbdiv"></div>
+    <div class="sbl">按国家</div>
+    <div class="sbi" :class="{active:filter==='美国'}" @click="setFilter('美国')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+      美国<span class="sbc">{{ cnt('参战国家','美国') }}</span>
+    </div>
+    <div class="sbi" :class="{active:filter==='以色列'}" @click="setFilter('以色列')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+      以色列<span class="sbc">{{ cnt('参战国家','以色列') }}</span>
+    </div>
+    <div class="sbi" :class="{active:filter==='伊朗'}" @click="setFilter('伊朗')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+      伊朗<span class="sbc">{{ cnt('参战国家','伊朗') }}</span>
+    </div>
+    <div class="sbdiv"></div>
+    <div class="sbl">快速搜索</div>
+    <span class="sbq" v-for="k in quickTags" :key="k" @click="qs(k)">{{ k }}</span>
+  </aside>
+  <main class="main">
+    <div v-if="loading" class="ldg"><div class="spin"></div></div>
+    <div v-else-if="!searched && !filter" class="welcome">
+      <div class="wico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <h2>武器装备情报检索</h2>
+      <p>涵盖 2026 年美以伊冲突中使用的导弹与防御系统，支持名称、国家、性能等多维度检索</p>
+      <div class="wchips">
+        <span class="wchip" v-for="k in ['美国','以色列','伊朗','高超音速','无人机','防空','巡航导弹','激光']" :key="k" @click="qs(k)">{{ k }}</span>
       </div>
     </div>
-
-    <div class="content">
-      <div class="search-float">
-        <div class="search-row">
-          <div class="search-input-wrap">
-            <input
-              class="search-input"
-              v-model="query"
-              placeholder="输入武器名称、国家或技术关键词..."
-              @keyup.enter="search"
-            >
-          </div>
-          <button class="search-btn" @click="search">查询</button>
-        </div>
-        <div class="quick-tags">
-          <span class="quick-tag" @click="quickSearch('美国')">🇺🇸 美国</span>
-          <span class="quick-tag" @click="quickSearch('以色列')">🇮🇱 以色列</span>
-          <span class="quick-tag" @click="quickSearch('伊朗')">🇮🇷 伊朗</span>
-          <span class="quick-tag" @click="quickSearch('高超音速')">⚡ 高超音速</span>
-          <span class="quick-tag" @click="quickSearch('无人机')">✈️ 无人机</span>
-          <span class="quick-tag" @click="quickSearch('防空')">🛡️ 防空</span>
-        </div>
+    <template v-else>
+      <div class="rhd">
+        <span class="rht" v-if="searched">关键词 <span>「{{ lastQ }}」</span> 的检索结果</span>
+        <span class="rht" v-else><span>{{ filter }}</span> 类装备</span>
+        <span class="rhc">{{ displayed.length }} 条</span>
       </div>
-
-      <div class="results-scroll">
-        <div v-if="!currentResults && !loading" class="welcome">
-          <div class="welcome-orb">🔍</div>
-          <h2>装备情报检索系统</h2>
-          <p>输入关键词开始查询...</p>
-        </div>
-
-        <div v-if="loading" class="welcome">
-          <div class="loading-ring"></div>
-          <p>正在检索...</p>
-        </div>
-
-        <div v-if="currentResults && !loading">
-          <div v-if="currentResults.length === 0" class="welcome">
-            <p>未找到相关装备</p>
+      <div v-if="displayed.length===0" class="empty">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <p style="font-size:14px;color:#4b5563">未找到相关装备</p>
+        <p style="font-size:12.5px;color:#9ca3af">请换一个关键词，如：美国 / 弹道导弹 / 激光</p>
+      </div>
+      <div v-else class="cards">
+        <div v-for="(item,i) in displayed" :key="i" class="card" @click="open(item)">
+          <div class="cimg">
+            <img v-if="item['典型照片']" :src="item['典型照片']" :alt="item['武器类别']" @error="e=>e.target.parentElement.innerHTML=noImgHtml">
+            <div v-else class="noimg"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+            <span class="bt" :class="item.type==='导弹'?'m':'d'">{{ item.type }}</span>
+            <span class="bc" :class="cc(item['参战国家'])">{{ item['参战国家'] }}</span>
           </div>
-
-          <div v-else class="cards-grid">
-            <div v-for="(item, idx) in currentResults" :key="idx" class="weapon-card">
-              <div class="card-visual">
-                <img
-                  v-if="item['典型照片']"
-                  :src="item['典型照片']"
-                  class="card-img"
-                  @error="$event.target.style.display='none'"
-                >
-                <div v-else class="card-img-placeholder">
-                  {{ item.type === '导弹' ? '🚀' : '🛡️' }}
-                </div>
-                <span class="type-pill" :class="item.type === '导弹' ? 'pill-missile' : 'pill-defense'">
-                  {{ item.type }}
-                </span>
-              </div>
-
-              <div class="card-body">
-                <div class="card-title">{{ item['武器类别'] }}</div>
-                <span class="card-country">{{ item['参战国家'] }}</span>
-
-                <div v-if="item['简介']" class="info-section">
-                  <div class="info-label">装备简介</div>
-                  <div class="info-text" :class="{ collapsed: !expanded[idx] }">{{ item['简介'] }}</div>
-                  <button class="expand-btn" @click="toggle(idx)">
-                    {{ expanded[idx] ? '收起 ▲' : '展开全文 ▼' }}
-                  </button>
-                </div>
-
-                <div v-if="item['核心性能']" class="info-section">
-                  <div class="info-label">核心性能</div>
-                  <div class="info-text collapsed">{{ item['核心性能'] }}</div>
-                </div>
-                <div v-if="item['制导方式']" class="info-section">
-                  <div class="info-label">制导方式</div>
-                  <div class="info-text collapsed">{{ item['制导方式'] }}</div>
-                </div>
-                <div v-if="item['本次战争使用情况及战果']" class="info-section">
-                  <div class="info-label">实战情况</div>
-                  <div class="info-text collapsed">{{ item['本次战争使用情况及战果'] }}</div>
-                </div>
-              </div>
+          <div class="cbody">
+            <div class="cname">{{ item['武器类别'] }}</div>
+            <div class="cdesc" v-if="item['简介']">{{ item['简介'] }}</div>
+            <div class="cmeta" v-if="item['制导方式']">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+              <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ item['制导方式'].slice(0,30) }}{{ item['制导方式'].length>30?'…':'' }}</span>
             </div>
           </div>
+          <div class="cfoot"><span class="caction">查看详情 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
         </div>
+      </div>
+    </template>
+  </main>
+</div>
+<div class="ov" v-if="detail" @click.self="close">
+  <div class="modal">
+    <img v-if="detail['典型照片']" class="mimg" :src="detail['典型照片']" :alt="detail['武器类别']" @error="e=>e.target.style.display='none'">
+    <div v-else class="mnoimg"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="mhd">
+      <div>
+        <div class="mtitle">{{ detail['武器类别'] }}</div>
+        <div class="mbadges">
+          <span class="mb" :class="detail.type==='导弹'?'m':'d'">{{ detail.type }}</span>
+          <span class="mb" :class="cc(detail['参战国家'])">{{ detail['参战国家'] }}</span>
+        </div>
+      </div>
+      <button class="mclose" @click="close"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="mbody">
+      <div v-if="detail['简介']" class="dsec">
+        <div class="dlbl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>装备简介</div>
+        <div class="dtxt">{{ detail['简介'] }}</div>
+      </div>
+      <div v-if="detail['核心性能']" class="dsec">
+        <div class="dlbl"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>核心性能</div>
+        <div class="dtxt">{{ detail['核心性能'] }}</div>
+      </div>
+      <div v-if="detail['制导方式']" class="dsec">
+        <div class="dlbl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>制导方式</div>
+        <div class="dtxt">{{ detail['制导方式'] }}</div>
+      </div>
+      <div v-if="detail['本次战争使用情况及战果']" class="dsec">
+        <div class="dlbl"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>实战使用情况</div>
+        <div class="dtxt hl">{{ detail['本次战争使用情况及战果'] }}</div>
       </div>
     </div>
   </div>
 </div>
-
+</div>
 <script>
-const { createApp, ref, reactive } = Vue
-
-const SEARCH_FIELDS = ['参战国家', '武器类别', '简介', '核心性能', '制导方式', '本次战争使用情况及战果']
-
-function levenshtein(a, b) {
-  const m = a.length, n = b.length
-  const dp = Array.from({ length: m + 1 }, (_, i) => [i])
-  for (let j = 0; j <= n; j++) dp[0][j] = j
-  for (let i = 1; i <= m; i++)
-    for (let j = 1; j <= n; j++)
-      dp[i][j] = a[i-1] === b[j-1]
-        ? dp[i-1][j-1]
-        : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])
-  return dp[m][n]
-}
-
-function fuzzyMatch(text, kw) {
-  text = text.toLowerCase(); kw = kw.toLowerCase()
-  if (!kw) return 0
-  const exactCount = (text.match(new RegExp(kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length
-  if (exactCount > 0) return exactCount * 10
-  if (kw.length < 2) return 0
-  let minDist = Infinity
-  for (let i = 0; i <= text.length - kw.length; i++) {
-    const dist = levenshtein(text.slice(i, i + kw.length), kw)
-    if (dist < minDist) minDist = dist
-  }
-  const threshold = Math.floor(kw.length / 3)
-  if (minDist <= threshold && threshold > 0) return Math.max(1, 5 - minDist)
-  return 0
-}
-
-function tokenize(query) {
-  const tokens = query.trim().split(/[\s，,、；;]+/).filter(Boolean)
-  if (query.replace(/\s/g, '').length <= 4) {
-    const chars = query.replace(/\s/g, '').split('')
-    return [...new Set([...tokens, ...chars])].filter(Boolean)
-  }
-  return [...new Set(tokens)].filter(Boolean)
-}
-
-function scoreItem(item, keywords) {
-  let score = 0
-  for (const kw of keywords) {
-    if (!kw) continue
-    score += fuzzyMatch(String(item['武器类别'] || ''), kw) * 3
-    score += fuzzyMatch(String(item['参战国家'] || ''), kw) * 2
-    for (const f of SEARCH_FIELDS.slice(2))
-      score += fuzzyMatch(String(item[f] || ''), kw)
-  }
-  return score
-}
-
-createApp({
-  setup() {
-    const query = ref('')
-    const loading = ref(false)
-    const allData = ref([])
-    const history = ref([])
-    const currentResults = ref(null)
-    const currentQuery = ref('')
-    const currentIndex = ref(-1)
-    const expanded = reactive({})
-
-    fetch('missiles.json').then(r => r.json()).then(d => { allData.value = d })
-
-    function toggle(idx) { expanded[idx] = !expanded[idx] }
-
-    function doSearch(q) {
-      if (!q || loading.value) return
-      loading.value = true
-      currentResults.value = null
-      Object.keys(expanded).forEach(k => delete expanded[k])
-      setTimeout(() => {
-        const keywords = tokenize(q)
-        const scored = allData.value
-          .map(item => ({ item, score: scoreItem(item, keywords) }))
-          .filter(x => x.score > 0)
-          .sort((a, b) => b.score - a.score)
-          .slice(0, 10)
-          .map(x => x.item)
-        currentResults.value = scored
-        currentQuery.value = q
-        history.value.unshift({ query: q, results: scored })
-        currentIndex.value = 0
-        query.value = ''
-        loading.value = false
-      }, 200)
-    }
-
-    function search() { doSearch(query.value.trim()) }
-    function quickSearch(q) { doSearch(q) }
-
-    function loadHistory(i) {
-      currentIndex.value = i
-      currentResults.value = history.value[i].results
-      currentQuery.value = history.value[i].query
-      Object.keys(expanded).forEach(k => delete expanded[k])
-    }
-
-    return { query, loading, history, currentResults, currentQuery, currentIndex, expanded, search, quickSearch, toggle, loadHistory }
-  }
-}).mount('#app')
+const {createApp,ref,computed,onMounted}=Vue
+const F=['参战国家','武器类别','简介','核心性能','制导方式','本次战争使用情况及战果']
+const noImgHtml=`<div class="noimg"><svg viewBox="0 0 24 24" fill="none" stroke="#c5cfe0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>`
+function tok(q){const t=q.trim().split(/[\s，,、；;]+/).filter(Boolean);if(q.replace(/\s/g,'').length<=4){const c=[...new Set(q.replace(/\s/g,'').split(''))];return[...new Set([...t,...c])].filter(Boolean)}return t}
+function score(item,kws){let s=0;const tx=F.map(f=>String(item[f]||'')).join(' ').toLowerCase();for(const kw of kws){const k=kw.toLowerCase();if(!k)continue;const n=(tx.match(new RegExp(k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'))||[]).length;if(n>0){s+=n;if(String(item['武器类别']||'').toLowerCase().includes(k))s+=5;if(String(item['参战国家']||'').toLowerCase().includes(k))s+=3}}return s}
+createApp({setup(){
+  const all=ref([]),query=ref(''),lastQ=ref(''),loading=ref(true),searched=ref(false),results=ref([]),filter=ref(''),detail=ref(null),inputEl=ref(null)
+  const quickTags=['高超音速','无人机','防空系统','巡航导弹','GPS制导','弹道导弹','钻地炸弹','激光武器']
+  let timer=null
+  onMounted(()=>fetch('missiles.json').then(r=>r.json()).then(d=>{all.value=d;loading.value=false}))
+  const cnt=(f,v)=>all.value.filter(i=>i[f]===v).length
+  const displayed=computed(()=>{
+    if(searched.value)return results.value
+    if(filter.value)return all.value.filter(i=>i.type===filter.value||i['参战国家']===filter.value)
+    return[]
+  })
+  function doSearch(){const q=query.value.trim();if(!q)return;filter.value='';const kws=tok(q);results.value=all.value.map(item=>({item,score:score(item,kws)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).map(x=>x.item);lastQ.value=q;searched.value=true}
+  function onInput(){clearTimeout(timer);if(!query.value.trim()){searched.value=false;results.value=[];return};timer=setTimeout(doSearch,350)}
+  function clearQ(){query.value='';searched.value=false;results.value=[];inputEl.value&&inputEl.value.focus()}
+  function setFilter(v){filter.value=v;searched.value=false;results.value=[];query.value=''}
+  function qs(kw){query.value=kw;filter.value='';doSearch()}
+  function open(item){detail.value=item;document.body.style.overflow='hidden'}
+  function close(){detail.value=null;document.body.style.overflow=''}
+  function cc(c){return{'美国':'us','以色列':'il','伊朗':'ir'}[c]||'xx'}
+  return{all,query,lastQ,loading,searched,results,filter,detail,inputEl,quickTags,displayed,noImgHtml,cnt,doSearch,onInput,clearQ,setFilter,qs,open,close,cc}
+}}).mount('#app')
 </script>
 </body>
 </html>
