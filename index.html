@@ -259,6 +259,43 @@ const { createApp, ref, reactive } = Vue
 
 const SEARCH_FIELDS = ['参战国家', '武器类别', '简介', '核心性能', '制导方式', '本次战争使用情况及战果']
 
+// Levenshtein 编辑距离
+function levenshtein(a, b) {
+  const m = a.length, n = b.length
+  const dp = Array.from({ length: m + 1 }, (_, i) => [i])
+  for (let j = 0; j <= n; j++) dp[0][j] = j
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = a[i-1] === b[j-1]
+        ? dp[i-1][j-1]
+        : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])
+  return dp[m][n]
+}
+
+// 模糊匹配：精确包含 + 编辑距离相似
+function fuzzyMatch(text, kw) {
+  text = text.toLowerCase()
+  kw = kw.toLowerCase()
+  if (!kw) return 0
+  // 精确包含：高分
+  const exactCount = (text.match(new RegExp(kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length
+  if (exactCount > 0) return exactCount * 10
+
+  // 滑动窗口：在文本中找与kw最相似的子串
+  if (kw.length < 2) return 0
+  const winLen = kw.length
+  let minDist = Infinity
+  for (let i = 0; i <= text.length - winLen; i++) {
+    const sub = text.slice(i, i + winLen)
+    const dist = levenshtein(sub, kw)
+    if (dist < minDist) minDist = dist
+  }
+  // 允许最多 floor(kw.length/3) 的编辑距离
+  const threshold = Math.floor(kw.length / 3)
+  if (minDist <= threshold && threshold > 0) return Math.max(1, 5 - minDist)
+  return 0
+}
+
 function tokenize(query) {
   const tokens = query.trim().split(/[\s，,、；;]+/).filter(Boolean)
   if (query.replace(/\s/g, '').length <= 4) {
@@ -270,15 +307,19 @@ function tokenize(query) {
 
 function scoreItem(item, keywords) {
   let score = 0
-  const text = SEARCH_FIELDS.map(f => String(item[f] || '')).join(' ').toLowerCase()
   for (const kw of keywords) {
-    const k = kw.toLowerCase()
-    if (!k) continue
-    const count = (text.match(new RegExp(k, 'g')) || []).length
-    if (count > 0) {
-      score += count
-      if (String(item['武器类别'] || '').toLowerCase().includes(k)) score += 5
-      if (String(item['参战国家'] || '').toLowerCase().includes(k)) score += 3
+    if (!kw) continue
+    // 武器类别：权重最高
+    const nameScore = fuzzyMatch(String(item['武器类别'] || ''), kw)
+    if (nameScore > 0) score += nameScore * 3
+
+    // 参战国家：次高
+    const countryScore = fuzzyMatch(String(item['参战国家'] || ''), kw)
+    if (countryScore > 0) score += countryScore * 2
+
+    // 其余字段
+    for (const f of SEARCH_FIELDS.slice(2)) {
+      score += fuzzyMatch(String(item[f] || ''), kw)
     }
   }
   return score
