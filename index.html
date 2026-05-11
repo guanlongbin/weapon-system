@@ -112,6 +112,23 @@ html,body{height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',
 .stables td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--t2);line-height:1.6}
 .stables tr:last-child td{border-bottom:none}
 .stables tr:hover td{background:var(--bg)}
+.news-item{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px dashed var(--border)}
+.news-item:last-child{border-bottom:none}
+.news-item a{font-size:12.5px;color:var(--blue);text-decoration:none;line-height:1.5;flex:1;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.news-item a:hover{text-decoration:underline}
+.news-date{font-size:11px;color:var(--t3);white-space:nowrap;flex-shrink:0}
+.timeline{position:relative;padding-left:20px}
+.timeline::before{content:'';position:absolute;left:5px;top:4px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--blue),var(--border))}
+.t-entry{position:relative;padding-bottom:16px}
+.t-entry:last-child{padding-bottom:0}
+.t-entry:last-child .t-dot{box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.t-dot{position:absolute;left:-14px;top:6px;transform:translateX(-50%);width:10px;height:10px;background:var(--blue);border-radius:50%;border:2px solid var(--white);z-index:1}
+.t-leaf{background:var(--bg);border-radius:10px;padding:12px 14px;position:relative}
+.t-leaf::before{content:'';position:absolute;left:-8px;top:8px;width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-right:8px solid var(--bg)}
+.t-date{font-size:11px;font-weight:700;color:var(--blue);margin-bottom:4px}
+.t-summary{font-size:12.5px;color:var(--t2);line-height:1.7;margin-bottom:6px;white-space:pre-line}
+.t-link{display:block;font-size:12px;color:var(--blue);text-decoration:none;padding:2px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.t-link:hover{text-decoration:underline}
 .c-us{color:#166534;font-weight:600}
 .c-il{color:#c2410c;font-weight:600}
 .c-ir{color:#7e22ce;font-weight:600}
@@ -296,6 +313,21 @@ html,body{height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',
           <div class="dlbl"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>实战使用情况</div>
           <div class="dtxt hl">{{ detail['本次战争使用情况及战果'] }}</div>
         </div>
+        <template v-if="newsCache[detail['武器类别'].split('\n')[0].trim()]">
+          <div class="dsec">
+            <div class="dlbl"><svg viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2zm0 0H2v-2a2 2 0 0 1 2-2h0"/><circle cx="12" cy="10" r="2"/><path d="M8 21v-1a4 4 0 0 1 8 0v1"/></svg>最新动态</div>
+            <div class="timeline">
+              <div v-for="(entry, ei) in newsCache[detail['武器类别'].split('\n')[0].trim()]" :key="entry.date" class="t-entry">
+                <div class="t-dot"></div>
+                <div class="t-leaf">
+                  <div class="t-date">{{ entry.date }}</div>
+                  <div class="t-summary">{{ entry.summary }}</div>
+                  <a v-for="n in entry.news" :href="n.url" target="_blank" rel="noopener" class="t-link">🔗 {{ n.title }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
       </div>
     </div>
   </div>
@@ -307,12 +339,13 @@ const noImgHtml=`<div class="noimg"><svg viewBox="0 0 24 24" fill="none" stroke=
 function tok(q){const t=q.trim().split(/[\s，,、；;]+/).filter(Boolean);if(q.replace(/\s/g,'').length<=4){const c=[...new Set(q.replace(/\s/g,'').split(''))];return[...new Set([...t,...c])].filter(Boolean)}return t}
 function score(item,kws){let s=0;const tx=F.map(f=>String(item[f]||'')).join(' ').toLowerCase();for(const kw of kws){const k=kw.toLowerCase();if(!k)continue;const n=(tx.match(new RegExp(k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'))||[]).length;if(n>0){s+=n;if(String(item['武器类别']||'').toLowerCase().includes(k))s+=5;if(String(item['参战国家']||'').toLowerCase().includes(k))s+=3}}return s}
 createApp({setup(){
-  const all=ref([]),strategies=ref({offensive:[],defensive:[]}),query=ref(''),lastQ=ref(''),loading=ref(true),searched=ref(false),results=ref([]),filter=ref(''),mode=ref(''),detail=ref(null),inputEl=ref(null)
+  const all=ref([]),strategies=ref({offensive:[],defensive:[]}),newsCache=ref({}),query=ref(''),lastQ=ref(''),loading=ref(true),searched=ref(false),results=ref([]),filter=ref(''),mode=ref(''),detail=ref(null),inputEl=ref(null)
   const quickTags=['高超音速','无人机','防空系统','巡航导弹','GPS制导','弹道导弹','钻地炸弹','激光武器']
   let timer=null
   onMounted(()=>{
     fetch('missiles.json').then(r=>r.json()).then(d=>{all.value=d;loading.value=false})
     fetch('strategy-models.json').then(r=>r.json()).then(d=>{strategies.value=d})
+    fetch('news-cache.json').then(r=>r.json()).then(d=>{newsCache.value=d.items||{}}).catch(()=>{})
   })
   const cnt=(f,v)=>all.value.filter(i=>i[f]===v).length
   const displayed=computed(()=>{
@@ -330,7 +363,7 @@ createApp({setup(){
   function open(item){detail.value=item}
   function close(){detail.value=null}
   function cc(c){return{'美国':'us','以色列':'il','伊朗':'ir'}[c]||'xx'}
-  return{all,strategies,mode,query,lastQ,loading,searched,results,filter,detail,inputEl,quickTags,displayed,noImgHtml,cnt,doSearch,onInput,clearQ,setFilter,setMode,qs,open,close,cc}
+  return{all,strategies,newsCache,mode,query,lastQ,loading,searched,results,filter,detail,inputEl,quickTags,displayed,noImgHtml,cnt,doSearch,onInput,clearQ,setFilter,setMode,qs,open,close,cc}
 }}).mount('#app')
 </script>
 </body>
