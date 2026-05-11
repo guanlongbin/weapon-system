@@ -35,7 +35,8 @@ html,body{height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',
 .sbdiv{height:1px;background:#edf0f4;margin:8px 14px}
 .sbq{display:block;padding:6px 14px;font-size:12.5px;color:var(--t2);cursor:pointer;transition:.14s}
 .sbq:hover{background:var(--blue-bg);color:var(--blue)}
-.main{flex:1;padding:24px 28px;min-width:0}
+.main{flex:1;padding:24px 28px;min-width:0;transition:margin-right .3s ease}
+.main.with-detail{margin-right:420px}
 .welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px 24px;text-align:center}
 .wico{width:60px;height:60px;background:var(--blue-bg);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 .wico svg{width:28px;height:28px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -80,8 +81,14 @@ html,body{height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',
 @keyframes fi{from{opacity:0}to{opacity:1}}
 .modal{background:var(--white);border-radius:14px;width:100%;max-width:680px;max-height:88vh;overflow-y:auto;box-shadow:0 16px 48px rgba(0,0,0,.14);animation:su .2s ease}
 @keyframes su{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.mimg{width:100%;height:240px;object-fit:cover;display:block;border-radius:14px 14px 0 0}
-.mnoimg{width:100%;height:180px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f0f4ff,#e8edf7);border-radius:14px 14px 0 0}
+.detail-panel{position:fixed;right:0;top:56px;width:420px;height:calc(100vh - 56px);background:var(--white);border-left:1px solid var(--border);overflow-y:auto;overscroll-behavior:contain;z-index:150;transform:translateX(100%);transition:transform .3s ease;box-shadow:-2px 0 8px rgba(0,0,0,.08)}
+.detail-panel.open{transform:translateX(0)}
+.dphd{position:sticky;top:0;background:var(--white);border-bottom:1px solid var(--border);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;z-index:10}
+.dpclose{width:32px;height:32px;background:var(--bg);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
+.dpclose:hover{background:var(--border)}
+.dpclose svg{width:14px;height:14px;stroke:var(--t2);fill:none;stroke-width:2.5;stroke-linecap:round}
+.mimg{width:100%;height:240px;object-fit:cover;display:block}
+.mnoimg{width:100%;height:180px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f0f4ff,#e8edf7)}
 .mnoimg svg{width:52px;height:52px;stroke:#c5cfe0;fill:none;stroke-width:1.4;stroke-linecap:round}
 .mhd{padding:18px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 .mtitle{font-size:18px;font-weight:700;line-height:1.35;margin-bottom:9px}
@@ -92,9 +99,6 @@ html,body{height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',
 .mb.us{background:#f0fdf4;color:#166534}
 .mb.il{background:#fff7ed;color:#c2410c}
 .mb.ir{background:#fdf4ff;color:#7e22ce}
-.mclose{width:32px;height:32px;background:var(--bg);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.15s}
-.mclose:hover{background:var(--border)}
-.mclose svg{width:14px;height:14px;stroke:var(--t2);fill:none;stroke-width:2.5;stroke-linecap:round}
 .mbody{padding:18px 20px 26px}
 .dsec{margin-bottom:18px}
 .dlbl{font-size:10.5px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:7px;display:flex;align-items:center;gap:6px}
@@ -102,6 +106,17 @@ html,body{height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',
 .dlbl svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
 .dtxt{font-size:13.5px;color:var(--t2);line-height:1.78;white-space:pre-line}
 .dtxt.hl{background:linear-gradient(to right,rgba(37,99,235,.05),transparent);border-left:3px solid var(--blue);padding:11px 13px;border-radius:0 6px 6px 0;color:var(--t1)}
+.stables{overflow-x:auto;background:var(--white);border-radius:10px;border:1px solid var(--border)}
+.stables table{width:100%;border-collapse:collapse;font-size:13px}
+.stables th{background:var(--blue-bg);color:var(--blue);font-weight:600;padding:11px 14px;text-align:left;border-bottom:2px solid var(--blue);white-space:nowrap}
+.stables td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--t2);line-height:1.6}
+.stables tr:last-child td{border-bottom:none}
+.stables tr:hover td{background:var(--bg)}
+.c-us{color:#166534;font-weight:600}
+.c-il{color:#c2410c;font-weight:600}
+.c-ir{color:#7e22ce;font-weight:600}
+.c-沙特{color:#ea580c;font-weight:600}
+.c-阿联酋{color:#0891b2;font-weight:600}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:3px}
 @media(max-width:720px){.sidebar{display:none}.main{padding:16px}.topbar{padding:0 14px}.ttag{display:none}.cards{grid-template-columns:1fr}}
 </style>
@@ -137,6 +152,16 @@ html,body{height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',
       防御系统<span class="sbc">{{ cnt('type','防御系统') }}</span>
     </div>
     <div class="sbdiv"></div>
+    <div class="sbl">策略模型</div>
+    <div class="sbi" :class="{active:mode==='offensive'}" @click="setMode('offensive')">
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      矛攻盾<span class="sbc">{{ strategies.offensive?.length || 0 }}</span>
+    </div>
+    <div class="sbi" :class="{active:mode==='defensive'}" @click="setMode('defensive')">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      盾防矛<span class="sbc">{{ strategies.defensive?.length || 0 }}</span>
+    </div>
+    <div class="sbdiv"></div>
     <div class="sbl">按国家</div>
     <div class="sbi" :class="{active:filter==='美国'}" @click="setFilter('美国')">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
@@ -154,9 +179,9 @@ html,body{height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',
     <div class="sbl">快速搜索</div>
     <span class="sbq" v-for="k in quickTags" :key="k" @click="qs(k)">{{ k }}</span>
   </aside>
-  <main class="main">
+  <main class="main" :class="{'with-detail':detail}">
     <div v-if="loading" class="ldg"><div class="spin"></div></div>
-    <div v-else-if="!searched && !filter" class="welcome">
+    <div v-else-if="!searched && !filter && !mode" class="welcome">
       <div class="wico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
       <h2>武器装备情报检索</h2>
       <p>涵盖 2026 年美以伊冲突中使用的导弹与防御系统，支持名称、国家、性能等多维度检索</p>
@@ -167,6 +192,7 @@ html,body{height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',
     <template v-else>
       <div class="rhd">
         <span class="rht" v-if="searched">关键词 <span>「{{ lastQ }}」</span> 的检索结果</span>
+        <span class="rht" v-else-if="mode"><span>{{ mode==='offensive'?'矛攻盾':'盾防矛' }}</span> 策略模型</span>
         <span class="rht" v-else><span>{{ filter }}</span> 类装备</span>
         <span class="rhc">{{ displayed.length }} 条</span>
       </div>
@@ -174,6 +200,48 @@ html,body{height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <p style="font-size:14px;color:#4b5563">未找到相关装备</p>
         <p style="font-size:12.5px;color:#9ca3af">请换一个关键词，如：美国 / 弹道导弹 / 激光</p>
+      </div>
+      <div v-else-if="mode" class="stables">
+        <table v-if="mode==='offensive'">
+          <thead>
+            <tr>
+              <th>国家</th>
+              <th>使用导弹/武器组合</th>
+              <th>面对防御系统</th>
+              <th>突防策略</th>
+              <th>突防效果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(s,i) in displayed" :key="i">
+              <td :class="'c-'+cc(s.国家)">{{ s.国家 }}</td>
+              <td>{{ s.使用导弹武器组合 }}</td>
+              <td>{{ s.面对防御系统 }}</td>
+              <td style="white-space:pre-line">{{ s.突防策略 }}</td>
+              <td>{{ s.突防效果 }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <table v-else>
+          <thead>
+            <tr>
+              <th>国家</th>
+              <th>使用防御系统</th>
+              <th>防御策略</th>
+              <th>面对的攻击</th>
+              <th>防御效果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(s,i) in displayed" :key="i">
+              <td :class="'c-'+cc(s.国家)">{{ s.国家 }}</td>
+              <td>{{ s.使用防御系统 }}</td>
+              <td>{{ s.防御策略 }}</td>
+              <td>{{ s.面对的攻击 }}</td>
+              <td>{{ s.防御效果 }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div v-else class="cards">
         <div v-for="(item,i) in displayed" :key="i" class="card" @click="open(item)">
@@ -196,41 +264,41 @@ html,body{height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',
       </div>
     </template>
   </main>
-</div>
-<div class="ov" v-if="detail" @click.self="close">
-  <div class="modal">
-    <img v-if="detail['典型照片']" class="mimg" :src="detail['典型照片']" :alt="detail['武器类别']" @error="e=>e.target.style.display='none'">
-    <div v-else class="mnoimg"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    <div class="mhd">
-      <div>
+  <div class="detail-panel" :class="{open:detail}">
+    <div class="dphd">
+      <span style="font-size:14px;font-weight:600;color:var(--t1)">装备详情</span>
+      <button class="dpclose" @click="close"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div v-if="detail">
+      <img v-if="detail['典型照片']" class="mimg" :src="detail['典型照片']" :alt="detail['武器类别']" @error="e=>e.target.style.display='none'">
+      <div v-else class="mnoimg"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="mhd">
         <div class="mtitle">{{ detail['武器类别'] }}</div>
         <div class="mbadges">
           <span class="mb" :class="detail.type==='导弹'?'m':'d'">{{ detail.type }}</span>
           <span class="mb" :class="cc(detail['参战国家'])">{{ detail['参战国家'] }}</span>
         </div>
       </div>
-      <button class="mclose" @click="close"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-    </div>
-    <div class="mbody">
-      <div v-if="detail['简介']" class="dsec">
-        <div class="dlbl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>装备简介</div>
-        <div class="dtxt">{{ detail['简介'] }}</div>
-      </div>
-      <div v-if="detail['核心性能']" class="dsec">
-        <div class="dlbl"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>核心性能</div>
-        <div class="dtxt">{{ detail['核心性能'] }}</div>
-      </div>
-      <div v-if="detail['制导方式']" class="dsec">
-        <div class="dlbl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>制导方式</div>
-        <div class="dtxt">{{ detail['制导方式'] }}</div>
-      </div>
-      <div v-if="detail['本次战争使用情况及战果']" class="dsec">
-        <div class="dlbl"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>实战使用情况</div>
-        <div class="dtxt hl">{{ detail['本次战争使用情况及战果'] }}</div>
+      <div class="mbody">
+        <div v-if="detail['简介']" class="dsec">
+          <div class="dlbl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>装备简介</div>
+          <div class="dtxt">{{ detail['简介'] }}</div>
+        </div>
+        <div v-if="detail['核心性能']" class="dsec">
+          <div class="dlbl"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>核心性能</div>
+          <div class="dtxt">{{ detail['核心性能'] }}</div>
+        </div>
+        <div v-if="detail['制导方式']" class="dsec">
+          <div class="dlbl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>制导方式</div>
+          <div class="dtxt">{{ detail['制导方式'] }}</div>
+        </div>
+        <div v-if="detail['本次战争使用情况及战果']" class="dsec">
+          <div class="dlbl"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>实战使用情况</div>
+          <div class="dtxt hl">{{ detail['本次战争使用情况及战果'] }}</div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 <script>
 const {createApp,ref,computed,onMounted}=Vue
@@ -239,25 +307,30 @@ const noImgHtml=`<div class="noimg"><svg viewBox="0 0 24 24" fill="none" stroke=
 function tok(q){const t=q.trim().split(/[\s，,、；;]+/).filter(Boolean);if(q.replace(/\s/g,'').length<=4){const c=[...new Set(q.replace(/\s/g,'').split(''))];return[...new Set([...t,...c])].filter(Boolean)}return t}
 function score(item,kws){let s=0;const tx=F.map(f=>String(item[f]||'')).join(' ').toLowerCase();for(const kw of kws){const k=kw.toLowerCase();if(!k)continue;const n=(tx.match(new RegExp(k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'))||[]).length;if(n>0){s+=n;if(String(item['武器类别']||'').toLowerCase().includes(k))s+=5;if(String(item['参战国家']||'').toLowerCase().includes(k))s+=3}}return s}
 createApp({setup(){
-  const all=ref([]),query=ref(''),lastQ=ref(''),loading=ref(true),searched=ref(false),results=ref([]),filter=ref(''),detail=ref(null),inputEl=ref(null)
+  const all=ref([]),strategies=ref({offensive:[],defensive:[]}),query=ref(''),lastQ=ref(''),loading=ref(true),searched=ref(false),results=ref([]),filter=ref(''),mode=ref(''),detail=ref(null),inputEl=ref(null)
   const quickTags=['高超音速','无人机','防空系统','巡航导弹','GPS制导','弹道导弹','钻地炸弹','激光武器']
   let timer=null
-  onMounted(()=>fetch('missiles.json').then(r=>r.json()).then(d=>{all.value=d;loading.value=false}))
+  onMounted(()=>{
+    fetch('missiles.json').then(r=>r.json()).then(d=>{all.value=d;loading.value=false})
+    fetch('strategy-models.json').then(r=>r.json()).then(d=>{strategies.value=d})
+  })
   const cnt=(f,v)=>all.value.filter(i=>i[f]===v).length
   const displayed=computed(()=>{
     if(searched.value)return results.value
+    if(mode.value)return strategies.value[mode.value]||[]
     if(filter.value)return all.value.filter(i=>i.type===filter.value||i['参战国家']===filter.value)
     return[]
   })
-  function doSearch(){const q=query.value.trim();if(!q)return;filter.value='';const kws=tok(q);results.value=all.value.map(item=>({item,score:score(item,kws)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).map(x=>x.item);lastQ.value=q;searched.value=true}
+  function doSearch(){const q=query.value.trim();if(!q)return;filter.value='';mode.value='';const kws=tok(q);results.value=all.value.map(item=>({item,score:score(item,kws)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).map(x=>x.item);lastQ.value=q;searched.value=true}
   function onInput(){clearTimeout(timer);if(!query.value.trim()){searched.value=false;results.value=[];return};timer=setTimeout(doSearch,350)}
-  function clearQ(){query.value='';searched.value=false;results.value=[];inputEl.value&&inputEl.value.focus()}
-  function setFilter(v){filter.value=v;searched.value=false;results.value=[];query.value=''}
-  function qs(kw){query.value=kw;filter.value='';doSearch()}
-  function open(item){detail.value=item;document.body.style.overflow='hidden'}
-  function close(){detail.value=null;document.body.style.overflow=''}
+  function clearQ(){query.value='';searched.value=false;results.value=[];detail.value=null;inputEl.value&&inputEl.value.focus()}
+  function setFilter(v){filter.value=v;mode.value='';searched.value=false;results.value=[];query.value='';detail.value=null}
+  function setMode(m){mode.value=m;filter.value='';searched.value=false;results.value=[];query.value='';detail.value=null}
+  function qs(kw){query.value=kw;filter.value='';mode.value='';detail.value=null;doSearch()}
+  function open(item){detail.value=item}
+  function close(){detail.value=null}
   function cc(c){return{'美国':'us','以色列':'il','伊朗':'ir'}[c]||'xx'}
-  return{all,query,lastQ,loading,searched,results,filter,detail,inputEl,quickTags,displayed,noImgHtml,cnt,doSearch,onInput,clearQ,setFilter,qs,open,close,cc}
+  return{all,strategies,mode,query,lastQ,loading,searched,results,filter,detail,inputEl,quickTags,displayed,noImgHtml,cnt,doSearch,onInput,clearQ,setFilter,setMode,qs,open,close,cc}
 }}).mount('#app')
 </script>
 </body>
