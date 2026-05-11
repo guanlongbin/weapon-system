@@ -2,8 +2,8 @@ name: 每日新闻更新
 
 on:
   schedule:
-    # 每天北京时间 10:00 运行 (UTC 02:00)
-    - cron: '0 2 * * *'
+    # 每天北京时间 08:00 运行 (UTC 00:00)
+    - cron: '0 0 * * *'
   # 允许手动触发
   workflow_dispatch:
 
