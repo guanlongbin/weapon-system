@@ -1,7 +1,28 @@
 {
-  "updated_at": "2026-10-02 12:04",
+  "updated_at": "2026-10-03 11:49",
   "items": {
     "反导拦截弹THAAD / PAC-3 CRI": [
+      {
+        "date": "2026-10-03",
+        "summary": "美国国防部签署协议推动PAC-3与THAAD拦截弹产能分别提升至三倍和四倍。2026年伊朗战争及此前冲突大量消耗拦截弹库存，暴露补给压力，国防部已追加逾7亿美元采购THAAD。美陆军同步推进防空改革与PAC-3 MSE升级，探索THAAD与爱国者协同拦截。",
+        "news": [
+          {
+            "title": "US DoW signs deals for PAC-3, THAAD interceptor production",
+            "url": "https://www.army-technology.com/news/us-dow-pac3-thaad-missile",
+            "date": ""
+          },
+          {
+            "title": "The 2026 Iran War Shows the Urgent Need for U.S. Enhanced Missile Defense Upgrades | Atlas Institute for International Affairs",
+            "url": "https://atlasinstitute.org/the-2026-iran-war-shows-the-urgent-need-for-u-s-enhanced-missile-defense-upgrades",
+            "date": ""
+          },
+          {
+            "title": "The Depleting Missile Defense Interceptor Inventory",
+            "url": "https://www.csis.org/analysis/depleting-missile-defense-interceptor-inventory",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "美国陆军在2027财年预算中请求为PAC-3 MSE拨款122亿美元（采购2798枚）、为THAAD拦截弹拨款114亿美元（采购857枚），均较上一年度大幅增长。五角大楼已与雷神、诺格和洛马签署生产协议，目标将PAC-3产量提升至三倍、THAAD提升至四倍。洛马还在研发更廉价的PAC-3 ACE，首飞预计不早于2028年。",
@@ -274,30 +295,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "洛马在2026年法恩堡航展推出平价版PAC-3 ACE拦截弹，成本不到现役PAC-3 MSE一半，可整合现有爱国者系统。美军时隔三十多年再次采购爱国者2型GEM-T拦截弹，同时THAAD拦截弹库存因消耗战承压，DOD已追加超7亿美元采购资金。",
-        "news": [
-          {
-            "title": "時隔三十多年美軍再買愛二GEM-T攔截彈 洛馬官宣愛三ACE 主打便宜易生產 烏歐聯合開發芙蕾雅反導系統 #PAC3ACE #愛國者導彈 #愛三 #PAC2 #PAC3 | 07/30 馬克時空",
-            "url": "https://www.youtube.com/watch?v=rR08plRkLKk",
-            "date": ""
-          },
-          {
-            "title": "The Depleting Missile Defense Interceptor Inventory - CSIS",
-            "url": "https://www.csis.org/analysis/depleting-missile-defense-interceptor-inventory",
-            "date": ""
-          },
-          {
-            "title": "Instagram",
-            "url": "https://www.instagram.com/reel/DbnTQ_5CWvv",
-            "date": ""
-          }
-        ]
       }
     ],
     "中程弹道导弹：海巴尔-什坎": [
+      {
+        "date": "2026-10-03",
+        "summary": "2026年9月初，伊朗使用“海巴尔·什坎”中程弹道导弹从本土发射，飞行约1000公里后精准命中约旦哈桑王子空军基地跑道，炸断40米宽军用跑道。该导弹具备末端变轨、固体燃料和机动发射能力，三发齐中，凸显其突防与精确打击能力。",
+        "news": [
+          {
+            "title": "近期袭击显示伊朗弹道导弹战力仍不可小觑 - WSJ",
+            "url": "https://cn.wsj.com/articles/%E8%BF%91%E6%9C%9F%E8%A2%AD%E5%87%BB%E6%98%BE%E7%A4%BA%E4%BC%8A%E6%9C%97%E5%BC%B9%E9%81%93%E5%AF%BC%E5%BC%B9%E6%88%98%E5%8A%9B%E4%BB%8D%E4%B8%8D%E5%8F%AF%E5%B0%8F%E8%A7%91-cf3d597b",
+            "date": ""
+          },
+          {
+            "title": "1000公里外一发命中，伊朗导弹炸断美军40米跑道，美军反导没兜住 - 搜狐时间线",
+            "url": "https://timeline.sohu.com/news/FXNpXSlDK3",
+            "date": ""
+          },
+          {
+            "title": "伊朗新导弹精准炸断美军跑道|伊朗|美军|海巴尔·谢坎|中程弹道导弹|美军基地_新浪新闻",
+            "url": "https://www.sina.cn/news/detail/5340635793722585.html",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "2026年9月，伊朗“海巴尔·什坎”中程弹道导弹在实战中飞行约1000公里，精准命中约旦哈桑王子空军基地跑道，炸断40米宽跑道。该导弹采用固体燃料、机动发射和末端变轨技术，美军反导系统未能拦截。",
@@ -570,30 +591,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "2026年4月至7月，伊朗在“真实承诺-4”及“纳斯尔-2”等行动中多次使用“海巴尔·谢坎”中程弹道导弹，打击以色列全境及科威特、巴林、约旦等地美军基地，部分导弹配备集束弹头。该导弹为固体燃料推进，射程1450公里，弹头末段具备机动能力。",
-        "news": [
-          {
-            "title": "海巴尔·舍坎_百度百科",
-            "url": "https://baike.baidu.com/item/%E6%B5%B7%E5%B7%B4%E5%B0%94%C2%B7%E8%88%8D%E5%9D%8E/60073386",
-            "date": ""
-          },
-          {
-            "title": "海巴尔导弹 - 维基百科，自由的百科全书",
-            "url": "https://zh.wikipedia.org/wiki/%E6%B5%B7%E5%B7%B4%E5%B0%94%E5%AF%BC%E5%BC%B9",
-            "date": ""
-          },
-          {
-            "title": "伊朗公布行动细节，有导弹配备集束弹头，均命中目标！特朗普：美军或还会出现更多伤亡，痛心但这是战争的一部分，目前无计划部署地面部队 | 每经网",
-            "url": "https://www.nbd.com.cn/articles/2026-03-08/4283415.html",
-            "date": ""
-          }
-        ]
       }
     ],
     "老式防空导弹：MIM-23B (霍克)": [
+      {
+        "date": "2026-10-03",
+        "summary": "MIM-23B霍克导弹仍在多国服役，美国已向乌克兰提供该型导弹及台湾地区除役的鹰式飞弹，用于拦截自杀式无人机和巡航导弹。俄乌战争中俄方称首次摧毁美制MIM-23霍克防空导弹系统。",
+        "news": [
+          {
+            "title": "美国MIM-23B改进型霍克地空导弹",
+            "url": "https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BDMIM-23B%E6%94%B9%E8%BF%9B%E5%9E%8B%E9%9C%8D%E5%85%8B%E5%9C%B0%E7%A9%BA%E5%AF%BC%E5%BC%B9/15208299",
+            "date": ""
+          },
+          {
+            "title": "经历了三次战争的美制老古董“霍克”地空导弹，土耳其人还在用……_风闻",
+            "url": "https://user.guancha.cn/main/content?id=349455",
+            "date": ""
+          },
+          {
+            "title": "俄烏戰爭｜俄稱首次摧毀美製MIM-23「霍克」防空導彈系統",
+            "url": "https://www.orangenews.hk/international/1218158/%E4%BF%84%E7%83%8F%E6%88%B0%E7%88%AD-%E4%BF%84%E7%A8%B1%E9%A6%96%E6%AC%A1%E6%91%A7%E6%AF%80%E7%BE%8E%E8%A3%BDMIM-23-%E9%9C%8D%E5%85%8B-%E9%98%B2%E7%A9%BA%E5%B0%8E%E5%BD%88%E7%B3%BB%E7%B5%B1.shtml",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "MIM-23B“霍克”防空导弹虽服役超60年，但在俄乌战争中仍被美国、西班牙等国移交乌克兰，用于拦截自杀式无人机和巡航导弹。美国还回购了台湾地区除役的霍克导弹转援乌克兰，显示其在低强度防空任务中仍具余热。",
@@ -866,30 +887,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "俄军于2024年4月23日首次通报在特别军事行动区域摧毁美製MIM-23「霍克」防空導彈系統。此前美国已向乌克兰提供该型导弹，西班牙亦移交Phase III型，乌军用于拦截俄巡航导弹和自杀无人机。",
-        "news": [
-          {
-            "title": "美国MIM-23B改进型霍克地空导弹",
-            "url": "https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BDMIM-23B%E6%94%B9%E8%BF%9B%E5%9E%8B%E9%9C%8D%E5%85%8B%E5%9C%B0%E7%A9%BA%E5%AF%BC%E5%BC%B9/15208299",
-            "date": ""
-          },
-          {
-            "title": "烏軍防空神器，鷹式攔截俄巡航導彈！老舊武器煥發新生，鷹式導彈烏俄作戰效果！俄防空壓制能力拉胯，烏軍防空系統再下一城！| MIM-23 | 霍克 | 愛國者 | 火力君 |",
-            "url": "https://www.youtube.com/watch?v=3M-Q67d28Ig",
-            "date": ""
-          },
-          {
-            "title": "俄烏戰爭｜俄稱首次摧毀美製MIM-23「霍克」防空導彈系統",
-            "url": "https://www.orangenews.hk/international/1218158/%E4%BF%84%E7%83%8F%E6%88%B0%E7%88%AD-%E4%BF%84%E7%A8%B1%E9%A6%96%E6%AC%A1%E6%91%A7%E6%AF%80%E7%BE%8E%E8%A3%BDMIM-23-%E9%9C%8D%E5%85%8B-%E9%98%B2%E7%A9%BA%E5%B0%8E%E5%BD%88%E7%B3%BB%E7%B5%B1.shtml",
-            "date": ""
-          }
-        ]
       }
     ],
     "近程防空/激光": [
+      {
+        "date": "2026-10-03",
+        "summary": "2026年初，以色列“铁梁”激光系统在实战中拦截超60%短程小型威胁，单次成本仅3.5至5美元，但受沙尘、重雾和强降雨影响，有效射程会缩减。同期俄军远程无人机发射量同比增长近50%，专家指出需通过人工智能融合雷达与指挥系统才能应对大规模集群突破。",
+        "news": [
+          {
+            "title": "马克谈天下(592) 聊聊现代无人机战争 - 博客 | 文学城",
+            "url": "https://blog.wenxuecity.com/myblog/74739/202603/3988.html",
+            "date": ""
+          },
+          {
+            "title": "“噩梦般的冷酷战争”来了",
+            "url": "https://content.foshanplus.com/newsDetails.html?newsId=300367013",
+            "date": ""
+          },
+          {
+            "title": "高能激光防空武器_百度百科",
+            "url": "https://baike.baidu.com/item/%E9%AB%98%E8%83%BD%E6%BF%80%E5%85%89%E9%98%B2%E7%A9%BA%E6%AD%A6%E5%99%A8/23124862",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "2026年初，以色列“铁梁”激光系统实战拦截超60%短程小型威胁，单次成本仅3.5-5美元，但受沙尘、重雾等天气影响有效射程缩减。该系统于2025年底交付，2026年3月首次用于拦截火箭弹，成为全球首款实战部署的激光防御平台。",
@@ -1162,30 +1183,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "2026年初，以色列“铁梁”激光系统在实战中成功拦截超60%的短程小型威胁，单次成本仅约3.5至5美元，有效缓解了拦截弹库存压力。但该系统在沙尘、重雾或强降雨环境下能量衰减严重，有效射程会缩减。",
-        "news": [
-          {
-            "title": "马克谈天下(592) 聊聊现代无人机战争 - 博客 | 文学城",
-            "url": "https://blog.wenxuecity.com/myblog/74739/202603/3988.html",
-            "date": ""
-          },
-          {
-            "title": "2026激光武器到底能不能“烧穿导弹”？中国公开进展拆解",
-            "url": "http://laser-infrared.com/index.php?s=%2FIndex%2Fmsg_detail%2Fid%2F15325",
-            "date": ""
-          },
-          {
-            "title": "未來重大戰場突破？美軍激光武器邁向實戰 | 大紀元",
-            "url": "https://www.epochtimes.com/b5/26/8/6/n14824899.htm",
-            "date": ""
-          }
-        ]
       }
     ],
     "中程弹道导弹：伊马德Emad-1 / 加迪尔Ghadr-110": [
+      {
+        "date": "2026-10-03",
+        "summary": "2025年6月23日，伊朗在对以色列的第21波导弹打击中首次使用Qadr-H导弹，并宣布在2026年伊朗战争中将其投入实战。该弹为Shahab-3改进型中程弹道导弹，射程1950公里，采用新型制导系统并减轻了弹头质量。",
+        "news": [
+          {
+            "title": "Ghadr-110 - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Ghadr-110",
+            "date": ""
+          },
+          {
+            "title": "伊玛德远程弹道导弹",
+            "url": "https://baike.baidu.com/item/%E4%BC%8A%E7%8E%9B%E5%BE%B7%E8%BF%9C%E7%A8%8B%E5%BC%B9%E9%81%93%E5%AF%BC%E5%BC%B9/54275391",
+            "date": ""
+          },
+          {
+            "title": "Emad, Ghadr (Shahab-3 Variants) | Missile Threat",
+            "url": "https://missilethreat.csis.org/missile/emad",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "2025年6月23日，伊朗在对以色列的第21波导弹打击中首次使用Qadr-H导弹，并宣布在2026年伊朗战争中再次用于实战。该导弹为Shahab-3改进型中程弹道导弹，最大射程1950公里，装备伊朗、真主党及胡塞武装。",
@@ -1458,30 +1479,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "2025年6月伊朗在对以色列的第21波导弹打击中首次实战使用Qadr-H导弹，并宣布在2026年伊朗战争中也使用了该导弹。Ghadr-110为Shahab-3A改进型中程弹道导弹，具备更高机动能力，其操作方包括伊朗、真主党和胡塞武装。",
-        "news": [
-          {
-            "title": "Ghadr-110 - Wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Ghadr-110",
-            "date": ""
-          },
-          {
-            "title": "Emad, Ghadr (Shahab-3 Variants) | Missile Threat",
-            "url": "https://missilethreat.csis.org/missile/emad",
-            "date": ""
-          },
-          {
-            "title": "伊玛德远程弹道导弹",
-            "url": "https://baike.baidu.com/item/%E4%BC%8A%E7%8E%9B%E5%BE%B7%E8%BF%9C%E7%A8%8B%E5%BC%B9%E9%81%93%E5%AF%BC%E5%BC%B9/54275391",
-            "date": ""
-          }
-        ]
       }
     ],
     "反导拦截弹": [
+      {
+        "date": "2026-10-03",
+        "summary": "美以伊冲突中，美以发射数百枚“爱国者”等反导拦截弹，导致库存告急，美国自身弹药紧张并可能减少对乌供应。以色列拦截弹库存“严重不足”，生产商计划将PAC-3年产量从600枚提升至约2000枚。",
+        "news": [
+          {
+            "title": "防空反导：体系变革正当时_军事频道_央视网(cctv.com)",
+            "url": "https://military.cctv.com/2026/05/11/ARTIRrZOVITxGIdFIdyU1sbt260511.shtml",
+            "date": ""
+          },
+          {
+            "title": "“看这局势，俄罗斯成最大赢家”",
+            "url": "https://www.guancha.cn/internation/2026_03_05_808926.shtml",
+            "date": ""
+          },
+          {
+            "title": "拦截弹库存告急？揭秘以色列防空反导体系；特朗普喊话联合护航，盟友反应冷淡；打破海峡封锁，唯派地面部队可解？20260316 | CCTV中文《今日亚洲》",
+            "url": "https://www.youtube.com/watch?v=VutlVJ12FvA",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "欧洲10国于2026年7月签署声明组建“一体化反弹道导弹联盟”，加速建设共享弹道导弹防御能力，并计划引进以色列箭-3系统、升级Aster 30，同时支持乌克兰自主研发“弗雷亚”反导系统。",
@@ -1754,30 +1775,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "美以伊冲突中反导拦截弹消耗迅速，以色列拦截弹库存“严重不足”，美军也面临“弹匣深度”危机。伊朗以廉价无人机和导弹发动饱和攻击，凸显拦截弹成本高昂与产能不足的问题。",
-        "news": [
-          {
-            "title": "防空反导：体系变革正当时_军事频道_央视网(cctv.com)",
-            "url": "https://military.cctv.com/2026/05/11/ARTIRrZOVITxGIdFIdyU1sbt260511.shtml",
-            "date": ""
-          },
-          {
-            "title": "美国拦截弹库存减少，伊朗调整策略发动猛攻 - 纽约时报中文网",
-            "url": "https://cn.nytimes.com/world/20260812/iran-military-base-attacks-us-munitions",
-            "date": ""
-          },
-          {
-            "title": "以色列拦截弹库存告急？美国“早料到”_中国网",
-            "url": "http://www.china.com.cn/txt/2026-03/16/content_118384709.shtml",
-            "date": ""
-          }
-        ]
       }
     ],
     "隐身防区外导弹JASSM (AGM-158)": [
+      {
+        "date": "2026-10-03",
+        "summary": "美军正大幅增加AGM-158 JASSM及LRASM导弹的采购计划，未来数年采购量或达11000枚，同时AGM-158XR超远程型号亮相，可由“迅龙”托盘系统从运输机发射。此外，伊朗在库尔德斯坦地区第三次发现近乎完好的AGM-158弹头。",
+        "news": [
+          {
+            "title": "AGM-158 Joint Air-to-Surface Standoff Missile (JASSM) | Air & Space Forces Magazine",
+            "url": "https://www.airandspaceforces.com/weapons/agm-158-jassm",
+            "date": ""
+          },
+          {
+            "title": "News world - 美国人急了，中国人笑了！伊朗刨出完整的美国最先进隐身导弹弹头！...",
+            "url": "https://www.facebook.com/100063888561475/posts/%E7%BE%8E%E5%9B%BD%E4%BA%BA%E6%80%A5%E4%BA%86%E4%B8%AD%E5%9B%BD%E4%BA%BA%E7%AC%91%E4%BA%86%E4%BC%8A%E6%9C%97%E5%88%A8%E5%87%BA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%BE%8E%E5%9B%BD%E6%9C%80%E5%85%88%E8%BF%9B%E9%9A%90%E8%BA%AB%E5%AF%BC%E5%BC%B9%E5%BC%B9%E5%A4%B42026%E5%B9%B47%E6%9C%88%E4%BC%8A%E6%9C%97%E5%BA%93%E5%B0%94%E5%BE%B7%E6%96%AF%E5%9D%A6%E5%9C%B0%E5%8C%BA-%E5%BD%93%E5%9C%B0%E4%BA%BA%E5%9C%A8%E6%B8%85%E7%90%86%E4%B8%80%E7%89%87%E8%A2%AB%E7%82%B8%E5%BE%97%E5%9D%91%E5%9D%91%E6%B4%BC%E6%B4%BC%E7%9A%84%E5%9C%9F%E5%9C%B0%E6%97%B6%E4%BB%8E%E5%9C%B0%E4%B8%8B%E5%88%A8%E5%87%BA%E4%BA%86%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%AE%B6%E4%BC%99%E4%B8%80%E6%9E%9A%E5%87%A0%E4%B9%8E%E5%AE%8C/1541198078019796",
+            "date": ""
+          },
+          {
+            "title": "鹰与盾：AGM-158防区外导弹 反制利器",
+            "url": "https://www.voachinese.com/a/EAS-20211209/6348015.html",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "美军正推进AGM-158XR超远程隐身巡航导弹，可由“迅龙”托盘系统从运输机发射，目标年产量1100枚。日本加快引进JASSM-ER，但面临交付变数及F-35配套延迟。该系列导弹在美军的实战使用情况暂无最新报道。",
@@ -2050,30 +2071,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "2026年2至4月美军对伊朗“史诗狂怒”行动中，JASSM-ER仅头四周就消耗超1000枚，美军还从全球向中东调拨该弹。AGM-158XR超远程型已亮相，可由“迅龙”托盘系统从运输机发射，美军目标年产量达1100枚。",
-        "news": [
-          {
-            "title": "AGM-158联合防区外空地导弹_百度百科",
-            "url": "https://baike.baidu.com/item/AGM-158%E8%81%94%E5%90%88%E9%98%B2%E5%8C%BA%E5%A4%96%E7%A9%BA%E5%9C%B0%E5%AF%BC%E5%BC%B9/4361273",
-            "date": ""
-          },
-          {
-            "title": "AGM-158 FLEX: Lockheed’s Modular JASSM | MiGFlug",
-            "url": "https://migflug.com/afterburner/es/agm-158-flex-modular-jassm-lockheed-martin-2026",
-            "date": ""
-          },
-          {
-            "title": "全球華人資訊聯盟",
-            "url": "https://www.facebook.com/globalchinesenewsunion/posts/%E7%BE%8E%E5%9B%BD%E4%BA%BA%E6%80%A5%E4%BA%86%E4%B8%AD%E5%9B%BD%E4%BA%BA%E7%AC%91%E4%BA%86%E4%BC%8A%E6%9C%97%E5%88%A8%E5%87%BA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%BE%8E%E5%9B%BD%E6%9C%80%E5%85%88%E8%BF%9B%E9%9A%90%E8%BA%AB%E5%AF%BC%E5%BC%B9%E5%BC%B9%E5%A4%B42026%E5%B9%B47%E6%9C%88%E4%BC%8A%E6%9C%97%E5%BA%93%E5%B0%94%E5%BE%B7%E6%96%AF%E5%9D%A6%E5%9C%B0%E5%8C%BA-%E5%BD%93%E5%9C%B0%E4%BA%BA%E5%9C%A8%E6%B8%85%E7%90%86%E4%B8%80%E7%89%87%E8%A2%AB%E7%82%B8%E5%BE%97%E5%9D%91%E5%9D%91%E6%B4%BC%E6%B4%BC%E7%9A%84%E5%9C%9F%E5%9C%B0%E6%97%B6%E4%BB%8E%E5%9C%B0%E4%B8%8B%E5%88%A8%E5%87%BA%E4%BA%86%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%AE%B6%E4%BC%99%E4%B8%80%E6%9E%9A%E5%87%A0%E4%B9%8E%E5%AE%8C/1484563863714354",
-            "date": ""
-          }
-        ]
       }
     ],
     "马基德 (Majid) 近程光电防空系统": [
+      {
+        "date": "2026-10-03",
+        "summary": "伊朗“马吉德”近程光电防空系统据称在近期美伊冲突中击伤一架美军F-35A隐身战机。该系统采用光电探测与AD-08光电防空导弹，射程8-10公里，射高5-6公里，全程不依赖雷达，可实现静默打击。",
+        "news": [
+          {
+            "title": "伏击隐身战机的利器！伊朗“马吉德”防空系统不可小觑，没雷达也能打_探测_实战_静默",
+            "url": "https://www.sohu.com/a/999147007_121400037",
+            "date": ""
+          },
+          {
+            "title": "紅外導彈——戰機的近距克星--軍事--人民網",
+            "url": "http://military.people.com.cn/BIG5/n1/2026/0408/c1011-40697168.html",
+            "date": ""
+          },
+          {
+            "title": "伊朗首次擊中美軍戰機 F-35A在伊朗上空被擊傷安全返回基地 5000磅鑽地彈首次參戰 #F35 #F35A #鑽地彈 #美伊衝突 #馬吉德防空系統 #伊朗防空  | 03/20 馬克時空",
+            "url": "https://www.youtube.com/watch?v=7lSVF95xqPI",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "伊朗“马吉德”近程光电防空系统采用光电探测与AD-08导弹，射程8-10公里、射高5-6公里，全程静默不依赖雷达。2026年3月，该系统被指在伊朗上空击伤一架美军F-35A战机，后者安全返回基地。",
@@ -2346,30 +2367,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "伊朗“马吉德”近程光电防空系统近期在实战中击伤一架美军F-35A隐身战机，该系统全程不依赖雷达、仅凭光电探测实现静默打击。此外，亚美尼亚军队近期在防空演习中也使用了该系统的AD-08短程型号。",
-        "news": [
-          {
-            "title": "伏击隐身战机的利器！伊朗“马吉德”防空系统不可小觑，没雷达也能打_探测_实战_静默",
-            "url": "https://www.sohu.com/a/999147007_121400037",
-            "date": ""
-          },
-          {
-            "title": "被伊朗光电防空导弹锁定，并且打中的是美国空军F-35A隐身战斗机|马赫|马吉德|隐形战机_网易订阅",
-            "url": "https://www.163.com/dy/article/KOF75QV905565LD7.html",
-            "date": ""
-          },
-          {
-            "title": "伊朗首次擊中美軍戰機 F-35A在伊朗上空被擊傷安全返回基地 5000磅鑽地彈首次參戰 #F35 #F35A #鑽地彈 #美伊衝突 #馬吉德防空系統 #伊朗防空  | 03/20 馬克時空",
-            "url": "https://www.youtube.com/watch?v=7lSVF95xqPI",
-            "date": ""
-          }
-        ]
       }
     ],
     "舰载防空反导标准-3 (SM-3)": [
+      {
+        "date": "2026-10-03",
+        "summary": "五角大楼与波音、雷神达成框架协议，加速生产SM-3 IB及SM-3 IIA拦截弹及其部件，以提升舰载和陆基反导能力。SM-3 IIA射程更远、功能更强，可应对更复杂弹道导弹威胁。",
+        "news": [
+          {
+            "title": "з-3żhϼuDu]SM-3^",
+            "url": "http://www.mdc.idv.tw/mdc/navy/usanavy/E-antiair-SM3.htm",
+            "date": ""
+          },
+          {
+            "title": "标准3防空导弹",
+            "url": "https://baike.baidu.com/item/%E6%A0%87%E5%87%863%E9%98%B2%E7%A9%BA%E5%AF%BC%E5%BC%B9/5119829",
+            "date": ""
+          },
+          {
+            "title": "五角大楼与美国主要军工企业达成协议，加速生产导弹拦截器",
+            "url": "https://www.voachinese.com/a/pentagon-reaches-agreements-with-major-us-defense-companies-to-accelerate-missile-interceptor-production-20260814/8186419.html",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "五角大楼与波音、雷神达成框架协议，加速生产SM-3 IB及SM-3 IIA拦截弹及其部件，以提升产能和交付速度。SM-3 IIA射程更远、能力更强，可应对更复杂弹道导弹威胁，均属舰载和陆基拦截弹。",
@@ -2642,30 +2663,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "五角大楼与波音、雷神达成框架协议，加速生产SM-3 IB及SM-3 IIA拦截弹及其部件。SM-3 IIA射程更远、能力更强，可应对更复杂弹道导弹威胁，舰载与陆基均可部署。",
-        "news": [
-          {
-            "title": "з-3żhϼuDu]SM-3^",
-            "url": "http://www.mdc.idv.tw/mdc/navy/usanavy/E-antiair-SM3.htm",
-            "date": ""
-          },
-          {
-            "title": "标准3防空导弹_百度百科",
-            "url": "https://baike.baidu.com/item/%E6%A0%87%E5%87%863%E9%98%B2%E7%A9%BA%E5%AF%BC%E5%BC%B9/5119829",
-            "date": ""
-          },
-          {
-            "title": "五角大楼与美国主要军工企业达成协议，加速生产导弹拦截器",
-            "url": "https://www.voachinese.com/a/pentagon-reaches-agreements-with-major-us-defense-companies-to-accelerate-missile-interceptor-production-20260814/8186419.html",
-            "date": ""
-          }
-        ]
       }
     ],
     "空对地导弹": [
+      {
+        "date": "2026-10-03",
+        "summary": "美伊冲突中，美军大量使用JASSM-ER隐形巡航导弹，头四周消耗超1000枚，同时战斧巡航导弹首月发射超850枚。CSIS估算，按当前产能补充这些关键导弹库存需数年时间，恐影响未来冲突应对能力。",
+        "news": [
+          {
+            "title": "美智库报告：美国或因对伊战争在未来冲突中面临关键导弹短缺风险 - 2026年4月22日, 俄罗斯卫星通讯社",
+            "url": "https://sputniknews.cn/20260422/1070901422.html",
+            "date": ""
+          },
+          {
+            "title": "俄罗斯导弹狂炸基辅 至少9人遇难 乌克兰急需爱国者拦截系统 - RFI - 法国国际广播电台",
+            "url": "https://www.rfi.fr/cn/%E5%9B%BD%E9%99%85/20260801-%E4%BF%84%E7%BD%97%E6%96%AF%E5%AF%BC%E5%BC%B9%E7%8B%82%E7%82%B8%E5%9F%BA%E8%BE%85-%E8%87%B3%E5%B0%919%E4%BA%BA%E9%81%87%E9%9A%BE-%E4%B9%8C%E5%85%8B%E5%85%B0%E6%80%A5%E9%9C%80%E7%88%B1%E5%9B%BD%E8%80%85%E6%8B%A6%E6%88%AA%E7%B3%BB%E7%BB%9F",
+            "date": ""
+          },
+          {
+            "title": "伊朗戰爭 (2026年) - 维基百科，自由的百科全书",
+            "url": "https://zh.wikipedia.org/wiki/%E4%BC%8A%E6%9C%97%E6%88%B0%E7%88%AD_(2026%E5%B9%B4)",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "美军在对伊朗军事行动中大量使用空对地导弹，包括从全球调拨JASSM-ER隐形巡航导弹投入中东战场。CSIS报告显示，战斧等关键导弹库存因密集使用大幅减少，补充需数十个月。",
@@ -2938,30 +2959,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "暂无最新动态",
-        "news": [
-          {
-            "title": "空对地导弹_百度百科",
-            "url": "https://baike.baidu.hk/item/%E7%A9%BA%E5%AF%B9%E5%9C%B0%E5%AF%BC%E5%BC%B9/414131",
-            "date": ""
-          },
-          {
-            "title": "空对地导弹_百度百科",
-            "url": "https://baike.baidu.hk/item/%E7%A9%BA%E5%9C%B0%E5%AF%BC%E5%BC%B9/0",
-            "date": ""
-          },
-          {
-            "title": "空对地导弹_百度百科",
-            "url": "https://baike.baidu.com/item/%E7%A9%BA%E5%9C%B0%E5%AF%BC%E5%BC%B9/0",
-            "date": ""
-          }
-        ]
       }
     ],
     "对地巡航导弹战斧TLAM（BGM-109）": [
+      {
+        "date": "2026-10-03",
+        "summary": "2026年2月28日，美军在对伊朗打击行动中使用“战斧”巡航导弹压制防空系统；6月10日消息称美军已发射49枚该导弹打击伊朗。7月9日，美国政府批准向德国出售远程“战斧”巡航导弹。",
+        "news": [
+          {
+            "title": "BGM-109巡航导弹",
+            "url": "https://baike.baidu.com/item/BGM-109%E5%B7%A1%E8%88%AA%E5%AF%BC%E5%BC%B9/22264219",
+            "date": ""
+          },
+          {
+            "title": "BGM-109",
+            "url": "http://www.mdc.idv.tw/mdc/navy/usanavy/E-antisurface-BGM109.htm",
+            "date": ""
+          },
+          {
+            "title": "战斧巡航导弹 - 维基百科，自由的百科全书",
+            "url": "https://zh.wikipedia.org/wiki/%E6%88%98%E6%96%A7%E5%B7%A1%E8%88%AA%E5%AF%BC%E5%BC%B9",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "2026年2月28日，美军在对伊朗打击行动中使用“战斧”巡航导弹压制防空系统；6月10日消息称美军已发射49枚该导弹打击伊朗。7月9日，美国政府批准向德国出售远程“战斧”巡航导弹。",
@@ -3234,30 +3255,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "暂无最新动态",
-        "news": [
-          {
-            "title": "BGM-109",
-            "url": "http://www.mdc.idv.tw/mdc/navy/usanavy/E-antisurface-BGM109.htm",
-            "date": ""
-          },
-          {
-            "title": "战斧巡航导弹 - 维基百科，自由的百科全书",
-            "url": "https://zh.wikipedia.org/wiki/%E6%88%98%E6%96%A7%E5%B7%A1%E8%88%AA%E5%AF%BC%E5%BC%B9",
-            "date": ""
-          },
-          {
-            "title": "BGM-109巡航导弹_百度百科",
-            "url": "https://baike.baidu.com/item/BGM-109%E5%B7%A1%E8%88%AA%E5%AF%BC%E5%BC%B9/22264219",
-            "date": ""
-          }
-        ]
       }
     ],
     "宙斯盾 (Aegis BMD) 舰载系统": [
+      {
+        "date": "2026-10-03",
+        "summary": "日本首艘搭载宙斯盾系统装备舰（ASEV）于2026年8月17日公开，成为印太地区新型海基弹道导弹防御平台。美海军宙斯盾BMD舰持续在欧洲、西太平洋及波斯湾执行区域反导任务。暂无该系统的实战表现信息。",
+        "news": [
+          {
+            "title": "Aegis Combat System | Lockheed Martin",
+            "url": "https://www.lockheedmartin.com/en-us/products/aegis-combat-system.html",
+            "date": ""
+          },
+          {
+            "title": "Navy Aegis Ballistic Missile Defense (BMD) Program: ...",
+            "url": "https://www.congress.gov/crs_external_products/RL/PDF/RL33745/RL33745.262.pdf",
+            "date": ""
+          },
+          {
+            "title": "“宙斯盾”作战系统",
+            "url": "https://baike.baidu.com/item/%E2%80%9C%E5%AE%99%E6%96%AF%E7%9B%BE%E2%80%9D%E4%BD%9C%E6%88%98%E7%B3%BB%E7%BB%9F/23800399",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "日本首艘搭载宙斯盾系统的ASEV舰艇相关报道于2026年8月发布。美国导弹防御局FY2026预算显示，到2026财年末将有63艘具备弹道导弹防御能力的宙斯盾舰需要维护支持。",
@@ -3530,30 +3551,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "美国导弹防御局2026财年预算显示，到2026财年末将有63艘具备弹道导弹防御能力的宙斯盾舰需要维护支持。日本海上自卫队正建造两艘满载排水量约2.6万吨的宙斯盾系统搭载舰（AESV），远超现役摩耶级驱逐舰。",
-        "news": [
-          {
-            "title": "Navy Aegis Ballistic Missile Defense (BMD) Program",
-            "url": "https://www.everycrsreport.com/files/2026-01-20_RL33745_686900a5eba7a537d25f8c68c56db3535022afd1.html",
-            "date": ""
-          },
-          {
-            "title": "“宙斯盾”由陆向海——日本“宙斯盾”超级战舰计划_腾讯新闻",
-            "url": "https://news.qq.com/rain/a/20260213A001OD00",
-            "date": ""
-          },
-          {
-            "title": "宙斯盾战斗系统 - 维基百科，自由的百科全书",
-            "url": "https://zh.wikipedia.org/zh-sg/神盾戰鬥系統",
-            "date": ""
-          }
-        ]
       }
     ],
     "空射弹道导弹蓝雀 (Blue Sparrow)": [
+      {
+        "date": "2026-10-03",
+        "summary": "2026年2月28日美以对伊朗空袭后，伊拉克境内发现疑似以色列“蓝麻雀”空射弹道导弹助推器残骸，该导弹由F-15战机发射。以军据称使用该导弹参与对伊朗高层目标的打击行动。",
+        "news": [
+          {
+            "title": "跨海2000公里突襲？伊拉克現「藍麻雀」殘骸 揭以軍F-15新戰法 - 自由軍武頻道",
+            "url": "https://def.ltn.com.tw/article/breakingnews/5354996",
+            "date": ""
+          },
+          {
+            "title": "藍色麻雀從天而降！以軍方透露斬首行動驚人細節 | 高精度制導導彈 | 哈梅內伊 | 防空系統 | 新唐人电视台",
+            "url": "https://www.ntdtv.com/b5/2026/03/07/a104073728.html",
+            "date": ""
+          },
+          {
+            "title": "哈米尼毫無防備！以色列「太空飛彈」斬首　戰術、欺敵過程曝",
+            "url": "https://news.tvbs.com.tw/world/3143970",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "2026年2月28日美以对伊朗空袭中，以色列使用F-15发射“蓝雀”空射弹道导弹，在伊拉克发现其助推器残骸。该导弹飞行约2000公里后从太空边缘垂直俯冲，终端速度达5-8马赫，用于打击德黑兰高层目标。",
@@ -3826,30 +3847,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "2026年2月28日美以对伊朗空袭后，伊拉克境内发现疑似以色列“蓝麻雀”空射弹道导弹助推器残骸。有报道称该导弹以高空大气层边缘飞行后垂直俯冲方式打击目标，终端速度达5至8马赫。",
-        "news": [
-          {
-            "title": "跨海2000公里突襲？伊拉克現「藍麻雀」殘骸 揭以軍F-15新戰法 - 自由軍武頻道",
-            "url": "https://def.ltn.com.tw/article/breakingnews/5354996",
-            "date": ""
-          },
-          {
-            "title": "軍工開物 2026-03-06 藍麻雀導彈擊殺哈梅內伊。伊朗成為激光武器試驗場。太空軍也加入作戰? | 主持：陳博 Larry",
-            "url": "https://www.youtube.com/watch?v=5SIhmSMASTM",
-            "date": ""
-          },
-          {
-            "title": "藍色麻雀從天而降！以軍方透露斬首行動驚人細節 | 高精度制導導彈 | 哈梅內伊 | 防空系統 | 新唐人电视台",
-            "url": "https://www.ntdtv.com/b5/2026/03/07/a104073728.html",
-            "date": ""
-          }
-        ]
       }
     ],
     "短程弹道导弹：法塔赫-110 等": [
+      {
+        "date": "2026-10-03",
+        "summary": "伊朗近期在美以伊冲突中实战使用“法塔赫-2”高超音速导弹及“法塔赫-313”等弹道导弹袭击美军基地。情报界消息称伊朗或向俄罗斯运送数百枚“法塔赫-110”等弹道导弹，但尚未确认移交。",
+        "news": [
+          {
+            "title": "伊朗首次使用「法塔赫‑2」導彈襲擊美軍基地最新情況 - 藍莓觀察",
+            "url": "https://www.bbd.com.hk/article/5373/%E4%BC%8A%E6%9C%97%E9%A6%96%E6%AC%A1%E4%BD%BF%E7%94%A8%E6%B3%95%E5%A1%94%E8%B5%AB2%E5%B0%8E%E5%BD%88%E8%A5%B2%E6%93%8A%E7%BE%8E%E8%BB%8D%E5%9F%BA%E5%9C%B0%E6%9C%80%E6%96%B0%E6%83%85%E6%B3%81",
+            "date": ""
+          },
+          {
+            "title": "近期襲擊顯示伊朗彈道飛彈戰力仍不可小覷 - WSJ",
+            "url": "https://cn.wsj.com/articles/%E8%BF%91%E6%9C%9F%E8%A5%B2%E6%93%8A%E9%A1%AF%E7%A4%BA%E4%BC%8A%E6%9C%97%E5%BD%88%E9%81%93%E9%A3%9B%E5%BD%88%E6%88%B0%E5%8A%9B%E4%BB%8D%E4%B8%8D%E5%8F%AF%E5%B0%8F%E8%A6%B7-6970f672",
+            "date": ""
+          },
+          {
+            "title": "情报界消息人士：伊朗将很快向俄罗斯运送数百枚弹道导弹",
+            "url": "https://www.voachinese.com/a/iran-to-deliver-hundreds-of-ballistic-missiles-to-russia-soon-intel-sources-say-20240809/7737211.html",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "伊朗近期在美以伊冲突中实战使用了“法塔赫-2”高超音速导弹及“法塔赫-110”系列弹道导弹袭击美军基地。情报界消息称伊朗可能向俄罗斯运送数百枚“法塔赫-110”弹道导弹，但尚未确认实际移交。",
@@ -4122,30 +4143,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "2026年5月30日，伊朗向美军驻科威特阿里·萨利姆空军基地发动“征服者-110”弹道导弹袭击，导弹被科威特防空部队拦截，但碎片致多名美军轻伤并损毁一架MQ-9无人机。7月18日，伊朗革命卫队发布“纳斯尔-2”行动画面，显示使用“征服者-110”等导弹打击科威特、巴林和约旦的美军目标。",
-        "news": [
-          {
-            "title": "征服者-110导弹",
-            "url": "https://baike.baidu.com/item/%E5%BE%81%E6%9C%8D%E8%80%85-110%E5%AF%BC%E5%BC%B9/10250081",
-            "date": ""
-          },
-          {
-            "title": "伊朗首次使用「法塔赫‑2」導彈襲擊美軍基地最新情況 - 藍莓日報",
-            "url": "https://www.bbd.com.hk/article/5373/%E4%BC%8A%E6%9C%97%E9%A6%96%E6%AC%A1%E4%BD%BF%E7%94%A8%E6%B3%95%E5%A1%94%E8%B5%AB2%E5%B0%8E%E5%BD%88%E8%A5%B2%E6%93%8A%E7%BE%8E%E8%BB%8D%E5%9F%BA%E5%9C%B0%E6%9C%80%E6%96%B0%E6%83%85%E6%B3%81",
-            "date": ""
-          },
-          {
-            "title": "情报界消息人士：伊朗将很快向俄罗斯运送数百枚弹道导弹",
-            "url": "https://www.voachinese.com/a/iran-to-deliver-hundreds-of-ballistic-missiles-to-russia-soon-intel-sources-say-20240809/7737211.html",
-            "date": ""
-          }
-        ]
       }
     ],
     "自杀式无人机：沙赫德系列": [
+      {
+        "date": "2026-10-03",
+        "summary": "美军已承认逆向仿制伊朗“沙赫德”无人机，五角大楼计划大规模生产仿制型号“卢卡斯”，以快速提升产量。同时，“沙赫德-136”凭借低空慢速、蜂群饱和攻击等特性，正倒逼美军加速开发反无人机作战装备。",
+        "news": [
+          {
+            "title": "五角大楼计划大规模生产仿制伊朗“沙赫德”的自杀式无人机 - 2026年3月18日, 俄罗斯卫星通讯社",
+            "url": "https://sputniknews.cn/20260318/1070310073.html",
+            "date": ""
+          },
+          {
+            "title": "[军武零距离]伊朗的“沙赫德”自杀式无人机倒逼美军开发反无人机作战装备",
+            "url": "https://tv.cctv.com/2026/04/06/VIDEckiCCTNFK1fwNx0GWDy6260406.shtml",
+            "date": ""
+          },
+          {
+            "title": "非对称消耗战果明显 美军承认已逆向仿制伊朗无人机",
+            "url": "https://m.bjnews.com.cn/detail/1774078438129502.html",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "美国承认已逆向仿制伊朗“沙赫德-136”无人机并计划大规模生产，其仿制型号“卢卡斯”已在对伊空袭中首次部署。该无人机以低空慢速、蜂群饱和攻击著称，航程超1000公里，能显著消耗防空资源。",
@@ -4418,30 +4439,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "伊朗“沙赫德”系列自杀式无人机持续在俄乌战场投入使用，倒逼美军加速开发反无人机装备。乌克兰空军已采用APKWS II激光导引火箭弹作为F-16拦截该型无人机的低成本方案，以应对成本效益失衡问题。",
-        "news": [
-          {
-            "title": "[军武零距离]伊朗的“沙赫德”自杀式无人机倒逼美军开发反无人机作战装备",
-            "url": "https://tv.cctv.com/2026/04/06/VIDEckiCCTNFK1fwNx0GWDy6260406.shtml",
-            "date": ""
-          },
-          {
-            "title": "這部影片主要講述烏克蘭空軍如何利用低成本的武器系統對抗俄羅斯的無人機威脅內容的完整翻譯： 【​烏克蘭 F-16 採用最強性價比武器，擊落大量俄羅斯無人機】 ​2026 年 2 月，烏克蘭上空的無人機戰爭迎來了突破性的轉折點。烏克蘭空軍為了獵殺俄羅斯的「沙赫德/見證者 (Shahed)」自殺式無人機，捨棄了單枚價值數十億韓元的昂貴空對空飛彈，轉而將大幅降低成本的 APKWS II 雷射導引火箭彈 作為 F-16 戰機的標準武裝。 ​這項舉措不僅解決了現代戰爭中長期存在的「成本效益」失衡問題，更對韓國的出口明星產品『「匕弓」的韓文為 비궁 (Bigung/Pigung)」』導引火箭彈構成了強烈的競爭壓力，被視為一項重大的戰略變化。",
-            "url": "https://www.threads.com/@adian9886837/post/DVQrPyUEhhz/%E9%80%99%E9%83%A8%E5%BD%B1%E7%89%87%E4%B8%BB%E8%A6%81%E8%AC%9B%E8%BF%B0%E7%83%8F%E5%85%8B%E8%98%AD%E7%A9%BA%E8%BB%8D%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E7%9A%84%E6%AD%A6%E5%99%A8%E7%B3%BB%E7%B5%B1%E5%B0%8D%E6%8A%97%E4%BF%84%E7%BE%85%E6%96%AF%E7%9A%84%E7%84%A1%E4%BA%BA%E6%A9%9F%E5%A8%81%E8%84%85%E5%85%A7%E5%AE%B9%E7%9A%84%E5%AE%8C%E6%95%B4%E7%BF%BB%E8%AD%AF%E7%83%8F%E5%85%8B%E8%98%AD-f-16-%E6%8E%A1%E7%94%A8%E6%9C%80%E5%BC%B7%E6%80%A7%E5%83%B9%E6%AF%94%E6%AD%A6%E5%99%A8%E6%93%8A%E8%90%BD%E5%A4%A7%E9%87%8F%E4%BF%84%E7%BE%85%E6%96%AF%E7%84%A1%E4%BA%BA%E6%A9%9F2026-%E5%B9%B4-2-",
-            "date": ""
-          },
-          {
-            "title": "沙赫德136 - 维基百科，自由的百科全书",
-            "url": "https://zh.wikipedia.org/wiki/%E6%B2%99%E8%B5%AB%E5%BE%B7136",
-            "date": ""
-          }
-        ]
       }
     ],
     "中程弹道导弹：卡德尔 (Ghadr)": [
+      {
+        "date": "2026-10-03",
+        "summary": "2026年4月，伊朗在袭击美国航母的行动中使用了“卡德尔”中程弹道导弹，该导弹射程1650–2000公里，可携带650–1000公斤高爆或集束战斗部。此前2026年3月，伊朗还宣称其“卡德尔-380”导弹击中美军驱逐舰并致甲板起火。",
+        "news": [
+          {
+            "title": "關於伊朗襲擊美國航母所用導彈的已知信息 - 2026年4月4日, 俄羅斯衛星通訊社",
+            "url": "https://big5.sputniknews.cn/20260404/1070609633.html",
+            "date": ""
+          },
+          {
+            "title": "Iran's Qader-380 missile, a direct descendant of the YJ-83, struck a US destroyer!",
+            "url": "https://www.youtube.com/watch?v=5Ae5QfOUe3k",
+            "date": ""
+          },
+          {
+            "title": "卡德尔",
+            "url": "https://baike.baidu.com/item/%E5%8D%A1%E5%BE%B7%E5%B0%94/17568398",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "2026年3月初有报道称，伊朗卡德尔-380导弹击中一艘美国驱逐舰，但该消息尚未得到权威证实。卡德尔系列为流星-3的深度改进型号，其固体燃料版本与泥石-2相关，射程约2000公里。",
@@ -4714,30 +4735,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "2026年3月，伊朗在“真实承诺4”行动多轮打击中动用“卡德尔”及“卡德尔-380”导弹，攻击以色列及美军基地，并称击中美国驱逐舰。该系列为“流星-3”深度改进型，属中程弹道导弹。",
-        "news": [
-          {
-            "title": "卡德尔",
-            "url": "https://baike.baidu.com/item/%E5%8D%A1%E5%BE%B7%E5%B0%94/17568398",
-            "date": ""
-          },
-          {
-            "title": "媒体：自与以色列和美国发生冲突以来，伊朗已发射500余枚导弹和2000余架无人机 - 2026年3月6日, 俄罗斯卫星通讯社",
-            "url": "https://sputniknews.cn/20260306/1070092727.html",
-            "date": ""
-          },
-          {
-            "title": "中程弹道导弹 - 维基百科，自由的百科全书",
-            "url": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E7%A8%8B%E5%BC%B9%E9%81%93%E5%AF%BC%E5%BC%B9",
-            "date": ""
-          }
-        ]
       }
     ],
     "高超音速导弹：法塔赫-1 / 法塔赫-2": [
+      {
+        "date": "2026-10-03",
+        "summary": "伊朗于2026年3月1日首次使用“法塔赫-2”高超音速巡航导弹袭击美军基地，并公布了发射画面。该导弹为伊朗国产高超音速武器，具备极高飞行速度与加固弹体，旨在打击远距离地面或水面目标。",
+        "news": [
+          {
+            "title": "有片丨伊朗公布「法塔赫-2」高超音速導彈發射畫面-香港商報",
+            "url": "http://www.hkcd.com.hk/content_app/2026-03/02/content_8742463.html",
+            "date": ""
+          },
+          {
+            "title": "伊朗“法塔赫-2”高超音速导弹究竟有多厉害？反无人机：拼的就是性价比！20260321 | CCTV中文《军情时间到》",
+            "url": "https://www.youtube.com/watch?v=ldLAPXSrpxA",
+            "date": ""
+          },
+          {
+            "title": "法塔赫-2 – 现代战舰数据",
+            "url": "https://mwstats.info/modules/missile-battery/fattah-2-78hi19k8?lang=zh-hans",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "伊朗于2026年3月1日首次使用“法塔赫-2”高超音速巡航导弹袭击美军基地，并于3月2日公布发射画面。该导弹为伊朗高超音速导弹，具备极高飞行速度与加固弹体，旨在打击远距离地面/水面目标。",
@@ -5010,30 +5031,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "伊朗在2026年2月28日对以色列的打击中首次使用“法塔赫”高超音速导弹，该导弹为两级固体燃料推进，射程2000–2500公里，末端速度12–16马赫。3月1日，伊朗军方称首次使用“法塔赫-2”高超音速巡航导弹袭击美军基地。",
-        "news": [
-          {
-            "title": "1吨集束弹+高超音速突防！伊朗超级导弹登场，撕碎以色列反导防御_美军_发射_法塔赫",
-            "url": "https://www.sohu.com/a/991166166_122105407",
-            "date": ""
-          },
-          {
-            "title": "伊朗高超音速导弹，法塔赫 2与中国有关吗？",
-            "url": "https://www.youtube.com/watch?v=fHawqM-3MIg",
-            "date": ""
-          },
-          {
-            "title": "有片丨伊朗公布「法塔赫-2」高超音速導彈發射畫面-香港商報",
-            "url": "http://www.hkcd.com.hk/content_app/2026-03/02/content_8742463.html",
-            "date": ""
-          }
-        ]
       }
     ],
     "重型钻地炸弹": [
+      {
+        "date": "2026-10-03",
+        "summary": "伊朗称已成功摧毁三枚美国GBU-57巨型钻地弹。此前美军B-2轰炸机曾使用该型炸弹打击伊朗深埋山体的地下设施，相关战事中该武器被大量使用。",
+        "news": [
+          {
+            "title": "伊朗称已成功摧毁三枚美国GBU-57巨型钻地弹，又称地堡炸弹；此前美国在战事中使用了大量该型号武器 | 极目新闻",
+            "url": "https://www.ctdsb.net/c1679_202604/2726287.html",
+            "date": ""
+          },
+          {
+            "title": "14噸炸彈砸進60米深山：B-2如何打地下戰爭？美軍如何建立地下打擊體系——鑽地彈的工作原理，伊朗地下設施的防護思路，精確打擊的現實效果。——HeavyWeapon重型武器",
+            "url": "https://www.youtube.com/watch?v=2Y9rGUCKm0k",
+            "date": ""
+          },
+          {
+            "title": "GBU-57 destroys Iran’s nuclear weapons dream",
+            "url": "https://www.youtube.com/watch?v=SCI-nsRpFV4",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "伊朗称已成功摧毁三枚美国GBU-57巨型钻地弹，此前美国在战事中大量使用该型号武器。有视频称该炸弹于2026年3月用于打击帕尔钦基地，以色列或将获得该型炸弹。",
@@ -5306,30 +5327,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "伊朗称已成功摧毁三枚美国GBU-57巨型钻地弹。此前美军B-2轰炸机曾搭载该型炸弹打击伊朗地下核设施，相关卫星图像显示打击效果。以色列或将获得该型武器。",
-        "news": [
-          {
-            "title": "伊朗称已成功摧毁三枚美国GBU-57巨型钻地弹，又称地堡炸弹；此前美国在战事中使用了大量该型号武器 | 极目新闻",
-            "url": "https://www.ctdsb.net/c1679_202604/2726287.html",
-            "date": ""
-          },
-          {
-            "title": "14噸炸彈砸進60米深山：B-2如何打地下戰爭？美軍如何建立地下打擊體系——鑽地彈的工作原理，伊朗地下設施的防護思路，精確打擊的現實效果。——HeavyWeapon重型武器",
-            "url": "https://www.youtube.com/watch?v=2Y9rGUCKm0k",
-            "date": ""
-          },
-          {
-            "title": "视频 以色列或将获得美国GBU-57巨型钻地炸弹 - RFI - 法国国际广播电台",
-            "url": "https://www.rfi.fr/cn/%E7%BE%8E%E6%B4%B2/20250617-%E8%A7%86%E9%A2%91-%E4%BB%A5%E8%89%B2%E5%88%97%E6%88%96%E5%B0%86%E8%8E%B7%E5%BE%97%E7%BE%8E%E5%9B%BDgbu-57%E5%B7%A8%E5%9E%8B%E9%92%BB%E5%9C%B0%E7%82%B8%E5%BC%B9",
-            "date": ""
-          }
-        ]
       }
     ],
     "防空导弹系统：巴瓦尔-373 / S-300": [
+      {
+        "date": "2026-10-03",
+        "summary": "伊朗在2026年建军节阅兵式上展示了升级版巴瓦尔-373防空系统，称其性能可媲美S-400，能拦截F-35等第五代战机。该系统射程达210公里，可同时跟踪60个目标并攻击其中6个，但实际战力尚待验证。",
+        "news": [
+          {
+            "title": "伊朗推出Bavar 373-ll防空导弹系统，射程和自主性增强。 : r/CredibleDefense",
+            "url": "https://www.reddit.com/r/CredibleDefense/comments/1j3zf7d/iran_launches_air_defense_missile_system_bavar?tl=zh-hans",
+            "date": ""
+          },
+          {
+            "title": "伊朗巴瓦尔-373防空系统2018年投入使用 重点保护核设备 - RFI - 法国国际广播电台",
+            "url": "https://www.rfi.fr/cn/%E6%94%BF%E6%B2%BB/20170903-%E4%BC%8A%E6%9C%97%E5%B7%B4%E7%93%A6%E5%B0%94-373%E9%98%B2%E7%A9%BA%E7%B3%BB%E7%BB%9F2018%E5%B9%B4%E6%8A%95%E5%85%A5%E4%BD%BF%E7%94%A8-%E9%87%8D%E7%82%B9%E4%BF%9D%E6%8A%A4%E6%A0%B8%E8%AE%BE%E5%A4%87",
+            "date": ""
+          },
+          {
+            "title": "伊朗秀新型防空系統Bavar-373 號稱能擊殺美軍匿蹤戰機 - 自由軍武頻道",
+            "url": "https://def.ltn.com.tw/article/breakingnews/4652820",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "伊朗在2026年建军节阅兵式上展示了升级版巴瓦尔-373防空导弹系统，称其射程和自主性增强，可拦截包括F-35在内的第五代战斗机。该系统配备导弹最大射程增至300公里以上，能同时攻击6个目标，但实际性能尚未经实战验证。",
@@ -5602,30 +5623,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "伊朗在4月17日阅兵式上展示了升级型巴瓦尔-373防空系统，称其可拦截包括F-35在内的第五代战机，性能声称可媲美S-400。该系统配备导弹最大射程增至300公里，可同时攻击6个目标。",
-        "news": [
-          {
-            "title": "巴瓦尔-373",
-            "url": "https://baike.baidu.com/item/%E5%B7%B4%E7%93%A6%E5%B0%94-373/62164247",
-            "date": ""
-          },
-          {
-            "title": "伊朗秀新型防空系統Bavar-373 號稱能擊殺美軍匿蹤戰機 - 自由軍武頻道",
-            "url": "https://def.ltn.com.tw/article/breakingnews/4652820",
-            "date": ""
-          },
-          {
-            "title": "伊朗推出新版巴瓦尔-373防空导弹系统 声称可拦截美国F-35战斗机_制裁_军事_包括",
-            "url": "https://www.sohu.com/a/772776215_120649655",
-            "date": ""
-          }
-        ]
       }
     ],
     "战术弹道导弹": [
+      {
+        "date": "2026-10-03",
+        "summary": "暂无最新动态",
+        "news": [
+          {
+            "title": "美军就要“弹尽炮绝”？",
+            "url": "https://www.dw.com/zh/%E7%BE%8E%E5%86%9B%E5%B0%B1%E8%A6%81%E5%BC%B9%E5%B0%BD%E7%82%AE%E7%BB%9D/a-78236361",
+            "date": ""
+          },
+          {
+            "title": "美国在对伊战争中几乎耗尽远程精确导弹 : 中国·国际 : 韩民族日报",
+            "url": "https://china.hani.co.kr/arti/international/17205.html",
+            "date": ""
+          },
+          {
+            "title": "超400架乌军无人机袭击莫斯科 俄军对基辅实施“最大规模弹道导弹袭击”！「防务新观察 Defense Review」20260722 | 军迷天下",
+            "url": "https://www.youtube.com/watch?v=883V637Poto",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "俄军对基辅实施“最大规模弹道导弹袭击”，乌军则以超400架无人机袭击莫斯科。伊朗展示短程弹道导弹并调整策略发动猛攻，美以拦截弹库存下降。外媒称弹道导弹技术扩散正重塑现代战争形态。",
@@ -5898,30 +5919,30 @@
             "date": ""
           }
         ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "英国国防部1月11日宣布启动“夜幕计划”，将为乌克兰研发射程超500公里、可携200公斤弹头的陆基战术弹道导弹，具备抗电子干扰和齐射撤离能力。同时，美陆军在与伊朗的冲突中已消耗“几乎所有”ATACMS等精确地对地导弹库存。",
-        "news": [
-          {
-            "title": "英国将为乌克兰研发新型陆基战术弹道导弹-新华网",
-            "url": "https://www.news.cn/world/20260113/7cf2578547274ea78ca4730bd8d1c7b1/c.html",
-            "date": ""
-          },
-          {
-            "title": "在与伊朗战争中 美陆军已使用“几乎所有”ATACMS等精准地对地导弹 - RFI - 法国国际广播电台",
-            "url": "https://www.rfi.fr/cn/%E4%B8%AD%E4%B8%9C/20260804-%E5%9C%A8%E4%B8%8E%E4%BC%8A%E6%9C%97%E6%88%98%E4%BA%89%E4%B8%AD-%E7%BE%8E%E5%9B%BD%E9%99%86%E5%86%9B%E5%B7%B2%E5%8A%A8%E7%94%A8%E4%BA%86-%E5%87%A0%E4%B9%8E%E6%89%80%E6%9C%89-atacms%E7%AD%89%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%9C%B0%E5%AF%B9%E5%9C%B0%E5%AF%BC%E5%BC%B9",
-            "date": ""
-          },
-          {
-            "title": "伊朗战争(2026年)",
-            "url": "https://zh.wikipedia.org/zh-hans/%E4%BC%8A%E6%9C%97%E6%88%B0%E7%88%AD_(2026%E5%B9%B4)",
-            "date": ""
-          }
-        ]
       }
     ],
     "自杀式攻击无人机LUCAS": [
+      {
+        "date": "2026-10-03",
+        "summary": "2026年2月28日，美军在针对伊朗的“史诗之怒”行动中首次实战使用LUCAS自杀式无人机，由天蝎打击特遣队地面发射，用于饱和突防、压制伊朗防空系统。该无人机基于沙赫德136设计，单价约3.5万美元，采用GPS自主导航，以撞击方式打击目标。",
+        "news": [
+          {
+            "title": "美军自杀式无人机FLM-126 | www.wenxuecity.com",
+            "url": "https://www.wenxuecity.com/blog/202603/26824/3111.html",
+            "date": ""
+          },
+          {
+            "title": "低成本无人作战攻击系统 - 维基百科，自由的百科全书",
+            "url": "https://zh.wikipedia.org/zh-hans/%E4%BD%8E%E6%88%90%E6%9C%AC%E7%84%A1%E4%BA%BA%E4%BD%9C%E6%88%B0%E6%94%BB%E6%93%8A%E7%B3%BB%E7%B5%B1",
+            "date": ""
+          },
+          {
+            "title": "美国在对伊朗“史诗之怒”行动中首次实战运用LUCAS自杀式无人机|无人机_新浪财经_新浪网",
+            "url": "https://finance.sina.com.cn/wm/2026-03-03/doc-inhpsxzn7582709.shtml?froms=ggmp",
+            "date": ""
+          }
+        ]
+      },
       {
         "date": "2026-10-02",
         "summary": "2026年2月28日，美军在针对伊朗的“史诗之怒”行动中首次实战使用LUCAS低成本自杀式无人机，由天蝎打击特遣队从地面发射，用于第一波饱和突防，压制和摧毁伊朗防空雷达及近程防空系统。",
@@ -6177,27 +6198,6 @@
       {
         "date": "2026-09-20",
         "summary": "2026年2月28日，美国中央司令部宣布在“史诗之怒”行动中首次实战使用LUCAS自杀式无人机，对伊朗目标实施精确打击。该无人机单价约3.5万美元，航程约740-925公里，可弹射或火箭助推发射，旨在对抗伊朗“沙赫德”系列系统。",
-        "news": [
-          {
-            "title": "美国在对伊朗“史诗之怒”行动中首次实战运用LUCAS自杀式无人机|无人机_新浪财经_新浪网",
-            "url": "https://finance.sina.com.cn/wm/2026-03-03/doc-inhpsxzn7582709.shtml?froms=ggmp",
-            "date": ""
-          },
-          {
-            "title": "低成本無人作戰攻擊系統 - 维基百科，自由的百科全书",
-            "url": "https://zh.wikipedia.org/wiki/%E4%BD%8E%E6%88%90%E6%9C%AC%E7%84%A1%E4%BA%BA%E4%BD%9C%E6%88%B0%E6%94%BB%E6%93%8A%E7%B3%BB%E7%B5%B1",
-            "date": ""
-          },
-          {
-            "title": "​【直擊！美製自殺式無人機突襲現場 💥】 ​現代戰爭的型態正在快速改變！近日一段最新影片流出，展示了美製 LUCAS 自殺式無人機 (Kamikaze Drone) 在伊拉克精準打擊伊朗支持武裝組織目標的震撼瞬間。 ​影片中可以看到，無人機在鎖定目標後，以極高速度直接衝向建築物，隨即引發巨大的爆炸火球。這種「巡弋飛彈化」的無人機，因其低成本、高精準度以及難以偵測的特性，已成為中東戰場上的關鍵武力。 ​🚀 LUCAS 無人機特點： •​精準導引： 能在複雜環境中識別並鎖定目標。 •​即時打擊： 結合偵查與攻擊功能，發現即摧毀。 •​高隱蔽性： 體積小，傳統防空系統難以攔截。 ​這次的行動再次引發了國際對中東局勢以及無人機技術擴散的關注。你認為無人機是否會完全取代傳統的空襲模式？ ​#軍事 #無人機 #中東局勢 #LUCAS #自殺式無人機 #科技戰爭 #國際新聞 @themestimes 🇺🇲📝譯文閱讀如下⬇️⬇️⬇️",
-            "url": "https://www.threads.com/@adian9886837/post/DVzdpQdEsYe/video-%E7%9B%B4%E6%93%8A%E7%BE%8E%E8%A3%BD%E8%87%AA%E6%AE%BA%E5%BC%8F%E7%84%A1%E4%BA%BA%E6%A9%9F%E7%AA%81%E8%A5%B2%E7%8F%BE%E5%A0%B4-%E7%8F%BE%E4%BB%A3%E6%88%B0%E7%88%AD%E7%9A%84%E5%9E%8B%E6%85%8B%E6%AD%A3%E5%9C%A8%E5%BF%AB%E9%80%9F%E6%94%B9%E8%AE%8A%E8%BF%91%E6%97%A5%E4%B8%80%E6%AE%B5%E6%9C%80%E6%96%B0%E5%BD%B1%E7%89%87%E6%B5%81%E5%87%BA%E5%B1%95%E7%A4%BA%E4%BA%86%E7%BE%8E%E8%A3%BD-lucas-%E8%87%AA%E6%AE%BA%E5%BC%8F%E7%84%A1%E4%BA%BA%E6%A9%9F-kamikaze-drone-%E5%9C%A8%E4%BC%8A%E6%8B%89%E5%85%8B%E7%B2%BE%E6%BA%96%E6%89%93%E6%93%8A",
-            "date": ""
-          }
-        ]
-      },
-      {
-        "date": "2026-09-19",
-        "summary": "2026年2月28日，美国中央司令部宣布在對伊朗“史诗之怒”行动中首次实战使用LUCAS自杀式无人机，由“天蝎打击”特遣部队执行精确打击。该无人机为低成本单程攻击系统，旨在对抗伊朗“沙赫德”系列，此次部署标志着其首次得到证实的实战运用。",
         "news": [
           {
             "title": "美国在对伊朗“史诗之怒”行动中首次实战运用LUCAS自杀式无人机|无人机_新浪财经_新浪网",
